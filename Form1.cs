@@ -68,11 +68,6 @@ namespace iwm_ClipToText
 			SubTbResultReload(true);
 		}
 
-		private void TbResult_MouseHover(object sender, EventArgs e)
-		{
-			_ = TbResult.Focus();
-		}
-
 		private void TbResult_TextChanged(object sender, EventArgs e)
 		{
 			SubTbResultReload(false);

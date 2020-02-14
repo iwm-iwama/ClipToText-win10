@@ -34,7 +34,9 @@
 			this.CmsResult_上へ = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult_下へ = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsResult_全クリア = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult_全コピー = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.CmsResult_コピー = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult_切り取り = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,8 +59,6 @@
 			this.RB03 = new System.Windows.Forms.RadioButton();
 			this.RB02 = new System.Windows.Forms.RadioButton();
 			this.RB01 = new System.Windows.Forms.RadioButton();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsResult_全クリア = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult.SuspendLayout();
 			this.CmsSaveFileName.SuspendLayout();
 			this.GrpRB.SuspendLayout();
@@ -86,7 +86,6 @@
 			this.TbResult.TabStop = false;
 			this.TbResult.WordWrap = false;
 			this.TbResult.TextChanged += new System.EventHandler(this.TbResult_TextChanged);
-			this.TbResult.MouseHover += new System.EventHandler(this.TbResult_MouseHover);
 			// 
 			// CmsResult
 			// 
@@ -107,7 +106,7 @@
 			// 
 			this.CmsResult_上へ.ForeColor = System.Drawing.Color.OrangeRed;
 			this.CmsResult_上へ.Name = "CmsResult_上へ";
-			this.CmsResult_上へ.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_上へ.Size = new System.Drawing.Size(115, 22);
 			this.CmsResult_上へ.Text = "▲";
 			this.CmsResult_上へ.Click += new System.EventHandler(this.CmsResult_上へ_Click);
 			// 
@@ -115,40 +114,52 @@
 			// 
 			this.CmsResult_下へ.ForeColor = System.Drawing.Color.OrangeRed;
 			this.CmsResult_下へ.Name = "CmsResult_下へ";
-			this.CmsResult_下へ.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_下へ.Size = new System.Drawing.Size(115, 22);
 			this.CmsResult_下へ.Text = "▼";
 			this.CmsResult_下へ.Click += new System.EventHandler(this.CmsResult_下へ_Click);
 			// 
 			// toolStripSeparator1
 			// 
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator1.Size = new System.Drawing.Size(112, 6);
+			// 
+			// CmsResult_全クリア
+			// 
+			this.CmsResult_全クリア.Name = "CmsResult_全クリア";
+			this.CmsResult_全クリア.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_全クリア.Text = "全クリア";
+			this.CmsResult_全クリア.Click += new System.EventHandler(this.CmsResult_全クリア_Click);
 			// 
 			// CmsResult_全コピー
 			// 
 			this.CmsResult_全コピー.Name = "CmsResult_全コピー";
-			this.CmsResult_全コピー.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_全コピー.Size = new System.Drawing.Size(115, 22);
 			this.CmsResult_全コピー.Text = "全コピー";
 			this.CmsResult_全コピー.Click += new System.EventHandler(this.CmsResult_全コピー_Click);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(112, 6);
 			// 
 			// CmsResult_コピー
 			// 
 			this.CmsResult_コピー.Name = "CmsResult_コピー";
-			this.CmsResult_コピー.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_コピー.Size = new System.Drawing.Size(115, 22);
 			this.CmsResult_コピー.Text = "コピー";
 			this.CmsResult_コピー.Click += new System.EventHandler(this.CmsResult_コピー_Click);
 			// 
 			// CmsResult_切り取り
 			// 
 			this.CmsResult_切り取り.Name = "CmsResult_切り取り";
-			this.CmsResult_切り取り.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_切り取り.Size = new System.Drawing.Size(115, 22);
 			this.CmsResult_切り取り.Text = "切り取り";
 			this.CmsResult_切り取り.Click += new System.EventHandler(this.CmsResult_切り取り_Click);
 			// 
 			// CmsResult_貼り付け
 			// 
 			this.CmsResult_貼り付け.Name = "CmsResult_貼り付け";
-			this.CmsResult_貼り付け.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_貼り付け.Size = new System.Drawing.Size(115, 22);
 			this.CmsResult_貼り付け.Text = "貼り付け";
 			this.CmsResult_貼り付け.Click += new System.EventHandler(this.CmsResult_貼り付け_Click);
 			// 
@@ -395,18 +406,6 @@
 			this.RB01.Text = "1st";
 			this.RB01.UseVisualStyleBackColor = false;
 			this.RB01.CheckedChanged += new System.EventHandler(this.RB01_CheckedChanged);
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
-			// 
-			// CmsResult_全クリア
-			// 
-			this.CmsResult_全クリア.Name = "CmsResult_全クリア";
-			this.CmsResult_全クリア.Size = new System.Drawing.Size(180, 22);
-			this.CmsResult_全クリア.Text = "全クリア";
-			this.CmsResult_全クリア.Click += new System.EventHandler(this.CmsResult_全クリア_Click);
 			// 
 			// Form1
 			// 
