@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace iwm_ClipToTextFile
+namespace iwm_ClipToText
 {
 	static class Program
 	{

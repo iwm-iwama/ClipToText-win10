@@ -15,11 +15,11 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 //using Microsoft.VisualBasic;// (要)参照に追加
 
-namespace iwm_ClipToTextFile
+namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200214";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200215";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -68,17 +68,9 @@ namespace iwm_ClipToTextFile
 			SubTbResultReload(true);
 		}
 
-		private void TbResult_KeyUp(object sender, KeyEventArgs e)
+		private void TbResult_MouseHover(object sender, EventArgs e)
 		{
-			switch (e.KeyCode)
-			{
-				case Keys.V:
-					if (e.Control == true)
-					{
-						SubTbResultReload(true);
-					}
-					break;
-			}
+			_ = TbResult.Focus();
 		}
 
 		private void TbResult_TextChanged(object sender, EventArgs e)
@@ -115,6 +107,35 @@ namespace iwm_ClipToTextFile
 			TbResult.Select(TbResult.TextLength, 0);
 			_ = TbResult.Focus();
 			TbResult.ScrollToCaret();
+		}
+
+		private void CmsResult_全クリア_Click(object sender, EventArgs e)
+		{
+			TbResult.Text = "";
+			SubTbResultReload(false);
+		}
+
+		private void CmsResult_全コピー_Click(object sender, EventArgs e)
+		{
+			TbResult.SelectAll();
+			TbResult.Copy();
+		}
+
+		private void CmsResult_コピー_Click(object sender, EventArgs e)
+		{
+			TbResult.Copy();
+		}
+
+		private void CmsResult_切り取り_Click(object sender, EventArgs e)
+		{
+			TbResult.Cut();
+			SubTbResultReload(false);
+		}
+
+		private void CmsResult_貼り付け_Click(object sender, EventArgs e)
+		{
+			TbResult.Paste();
+			SubTbResultReload(false);
 		}
 
 		private void CmsSaveFileName_全クリア_Click(object sender, EventArgs e)
