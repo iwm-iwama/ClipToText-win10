@@ -19,7 +19,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200215";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200531";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -186,16 +186,7 @@ namespace iwm_ClipToText
 					TbResult.Text = GblHText[_rb1.Name].ToString();
 				}
 
-				if (GblHText[_rb1.Name].ToString().Length > 0)
-				{
-					_rb1.ForeColor = Color.Black;
-					_rb1.BackColor = Color.LightCyan;
-				}
-				else
-				{
-					_rb1.ForeColor = Color.White;
-					_rb1.BackColor = Color.DimGray;
-				}
+				_rb1.ForeColor = GblHText[_rb1.Name].ToString().Length > 0 ? Color.Lime : Color.White;
 			}
 		}
 
@@ -212,6 +203,12 @@ namespace iwm_ClipToText
 		private void BtnReload_Click(object sender, EventArgs e)
 		{
 			SubTbResultReload(true);
+		}
+
+		private void BtnCopy_Click(object sender, EventArgs e)
+		{
+			TbResult.SelectAll();
+			TbResult.Copy();
 		}
 
 		private void BtnReload_MouseEnter(object sender, EventArgs e)
