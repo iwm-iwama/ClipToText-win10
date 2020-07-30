@@ -13,13 +13,13 @@ using System.Text.RegularExpressions;
 //using System.Threading;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Microsoft.VisualBasic;// (要)参照に追加
+//using Microsoft.VisualBasic; // (要)プロジェクト～参照に追加
 
 namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200531";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200730";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -90,21 +90,7 @@ namespace iwm_ClipToText
 			}
 		}
 
-		private void CmsResult_上へ_Click(object sender, EventArgs e)
-		{
-			TbResult.Select(0, 0);
-			_ = TbResult.Focus();
-			TbResult.ScrollToCaret();
-		}
-
-		private void CmsResult_下へ_Click(object sender, EventArgs e)
-		{
-			TbResult.Select(TbResult.TextLength, 0);
-			_ = TbResult.Focus();
-			TbResult.ScrollToCaret();
-		}
-
-		private void CmsResult_全クリア_Click(object sender, EventArgs e)
+		private void CmsResult_クリア_Click(object sender, EventArgs e)
 		{
 			TbResult.Text = "";
 			SubTbResultReload(false);
@@ -133,7 +119,7 @@ namespace iwm_ClipToText
 			SubTbResultReload(false);
 		}
 
-		private void CmsSaveFileName_全クリア_Click(object sender, EventArgs e)
+		private void CmsSaveFileName_クリア_Click(object sender, EventArgs e)
 		{
 			TbSaveFileName.Text = "";
 		}

@@ -31,10 +31,7 @@
 			this.components = new System.ComponentModel.Container();
 			this.TbResult = new System.Windows.Forms.TextBox();
 			this.CmsResult = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.CmsResult_上へ = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsResult_下へ = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsResult_全クリア = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_クリア = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult_全コピー = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.CmsResult_コピー = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +41,7 @@
 			this.CmsNull = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.TbSaveFileName = new System.Windows.Forms.TextBox();
 			this.CmsSaveFileName = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.CmsSaveFileName_全クリア = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsSaveFileName_クリア = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsSaveFileName_L1 = new System.Windows.Forms.ToolStripSeparator();
 			this.CmsSaveFileName_yyyyMMdd = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsSaveFileName_yyyyMMddHHmm = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,76 +88,52 @@
 			// CmsResult
 			// 
 			this.CmsResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsResult_上へ,
-            this.CmsResult_下へ,
-            this.toolStripSeparator1,
-            this.CmsResult_全クリア,
+            this.CmsResult_クリア,
             this.CmsResult_全コピー,
             this.toolStripSeparator2,
             this.CmsResult_コピー,
             this.CmsResult_切り取り,
             this.CmsResult_貼り付け});
 			this.CmsResult.Name = "CmsTbSaveFileName";
-			this.CmsResult.Size = new System.Drawing.Size(116, 170);
+			this.CmsResult.Size = new System.Drawing.Size(181, 142);
 			// 
-			// CmsResult_上へ
+			// CmsResult_クリア
 			// 
-			this.CmsResult_上へ.ForeColor = System.Drawing.Color.OrangeRed;
-			this.CmsResult_上へ.Name = "CmsResult_上へ";
-			this.CmsResult_上へ.Size = new System.Drawing.Size(115, 22);
-			this.CmsResult_上へ.Text = "▲";
-			this.CmsResult_上へ.Click += new System.EventHandler(this.CmsResult_上へ_Click);
-			// 
-			// CmsResult_下へ
-			// 
-			this.CmsResult_下へ.ForeColor = System.Drawing.Color.OrangeRed;
-			this.CmsResult_下へ.Name = "CmsResult_下へ";
-			this.CmsResult_下へ.Size = new System.Drawing.Size(115, 22);
-			this.CmsResult_下へ.Text = "▼";
-			this.CmsResult_下へ.Click += new System.EventHandler(this.CmsResult_下へ_Click);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(112, 6);
-			// 
-			// CmsResult_全クリア
-			// 
-			this.CmsResult_全クリア.Name = "CmsResult_全クリア";
-			this.CmsResult_全クリア.Size = new System.Drawing.Size(115, 22);
-			this.CmsResult_全クリア.Text = "全クリア";
-			this.CmsResult_全クリア.Click += new System.EventHandler(this.CmsResult_全クリア_Click);
+			this.CmsResult_クリア.Name = "CmsResult_クリア";
+			this.CmsResult_クリア.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_クリア.Text = "クリア";
+			this.CmsResult_クリア.Click += new System.EventHandler(this.CmsResult_クリア_Click);
 			// 
 			// CmsResult_全コピー
 			// 
 			this.CmsResult_全コピー.Name = "CmsResult_全コピー";
-			this.CmsResult_全コピー.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_全コピー.Size = new System.Drawing.Size(180, 22);
 			this.CmsResult_全コピー.Text = "全コピー";
 			this.CmsResult_全コピー.Click += new System.EventHandler(this.CmsResult_全コピー_Click);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(112, 6);
+			this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
 			// 
 			// CmsResult_コピー
 			// 
 			this.CmsResult_コピー.Name = "CmsResult_コピー";
-			this.CmsResult_コピー.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_コピー.Size = new System.Drawing.Size(180, 22);
 			this.CmsResult_コピー.Text = "コピー";
 			this.CmsResult_コピー.Click += new System.EventHandler(this.CmsResult_コピー_Click);
 			// 
 			// CmsResult_切り取り
 			// 
 			this.CmsResult_切り取り.Name = "CmsResult_切り取り";
-			this.CmsResult_切り取り.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_切り取り.Size = new System.Drawing.Size(180, 22);
 			this.CmsResult_切り取り.Text = "切り取り";
 			this.CmsResult_切り取り.Click += new System.EventHandler(this.CmsResult_切り取り_Click);
 			// 
 			// CmsResult_貼り付け
 			// 
 			this.CmsResult_貼り付け.Name = "CmsResult_貼り付け";
-			this.CmsResult_貼り付け.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_貼り付け.Size = new System.Drawing.Size(180, 22);
 			this.CmsResult_貼り付け.Text = "貼り付け";
 			this.CmsResult_貼り付け.Click += new System.EventHandler(this.CmsResult_貼り付け_Click);
 			// 
@@ -204,7 +177,7 @@
 			// CmsSaveFileName
 			// 
 			this.CmsSaveFileName.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsSaveFileName_全クリア,
+            this.CmsSaveFileName_クリア,
             this.CmsSaveFileName_L1,
             this.CmsSaveFileName_yyyyMMdd,
             this.CmsSaveFileName_yyyyMMddHHmm,
@@ -212,12 +185,12 @@
 			this.CmsSaveFileName.Name = "CmsTbSaveFileName";
 			this.CmsSaveFileName.Size = new System.Drawing.Size(188, 98);
 			// 
-			// CmsSaveFileName_全クリア
+			// CmsSaveFileName_クリア
 			// 
-			this.CmsSaveFileName_全クリア.Name = "CmsSaveFileName_全クリア";
-			this.CmsSaveFileName_全クリア.Size = new System.Drawing.Size(187, 22);
-			this.CmsSaveFileName_全クリア.Text = "全クリア";
-			this.CmsSaveFileName_全クリア.Click += new System.EventHandler(this.CmsSaveFileName_全クリア_Click);
+			this.CmsSaveFileName_クリア.Name = "CmsSaveFileName_クリア";
+			this.CmsSaveFileName_クリア.Size = new System.Drawing.Size(187, 22);
+			this.CmsSaveFileName_クリア.Text = "クリア";
+			this.CmsSaveFileName_クリア.Click += new System.EventHandler(this.CmsSaveFileName_クリア_Click);
 			// 
 			// CmsSaveFileName_L1
 			// 
@@ -469,11 +442,9 @@
 		private System.Windows.Forms.ToolStripMenuItem CmsSaveFileName_yyyyMMddHHmmss;
 		private System.Windows.Forms.ToolStripMenuItem CmsSaveFileName_yyyyMMdd;
 		private System.Windows.Forms.ContextMenuStrip CmsResult;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_上へ;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_下へ;
 		private System.Windows.Forms.ContextMenuStrip CmsNull;
 		private System.Windows.Forms.ToolTip ToolTip1;
-		private System.Windows.Forms.ToolStripMenuItem CmsSaveFileName_全クリア;
+		private System.Windows.Forms.ToolStripMenuItem CmsSaveFileName_クリア;
 		private System.Windows.Forms.Button BtnReload;
 		private System.Windows.Forms.GroupBox GrpRB;
 		private System.Windows.Forms.RadioButton RB03;
@@ -482,12 +453,11 @@
 		private System.Windows.Forms.RadioButton RB05;
 		private System.Windows.Forms.RadioButton RB04;
 		private System.Windows.Forms.ToolStripMenuItem CmsSaveFileName_yyyyMMddHHmm;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripMenuItem CmsResult_全コピー;
 		private System.Windows.Forms.ToolStripMenuItem CmsResult_コピー;
 		private System.Windows.Forms.ToolStripMenuItem CmsResult_切り取り;
 		private System.Windows.Forms.ToolStripMenuItem CmsResult_貼り付け;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_全クリア;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_クリア;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.Button BtnCopy;
 	}
