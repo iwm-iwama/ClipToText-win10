@@ -13,13 +13,12 @@ using System.Text.RegularExpressions;
 //using System.Threading;
 //using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Microsoft.VisualBasic; // (要)プロジェクト～参照に追加
 
 namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20200730";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20201101";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -27,6 +26,8 @@ namespace iwm_ClipToText
 		private readonly StringBuilder SB = new StringBuilder();
 
 		private readonly Hashtable GblHText = new Hashtable();
+
+		private TextBox TB = null;
 
 		internal static class NativeMethods
 		{
@@ -73,6 +74,11 @@ namespace iwm_ClipToText
 			SubTbResultReload(false);
 		}
 
+		private void TbResult_MouseUp(object sender, MouseEventArgs e)
+		{
+			CmsTextSelect_Open(e, TbResult);
+		}
+
 		private void SubTbResultReload(bool bGetClip)
 		{
 			if (bGetClip && Clipboard.ContainsText())
@@ -100,17 +106,6 @@ namespace iwm_ClipToText
 		{
 			TbResult.SelectAll();
 			TbResult.Copy();
-		}
-
-		private void CmsResult_コピー_Click(object sender, EventArgs e)
-		{
-			TbResult.Copy();
-		}
-
-		private void CmsResult_切り取り_Click(object sender, EventArgs e)
-		{
-			TbResult.Cut();
-			SubTbResultReload(false);
 		}
 
 		private void CmsResult_貼り付け_Click(object sender, EventArgs e)
@@ -172,7 +167,7 @@ namespace iwm_ClipToText
 					TbResult.Text = GblHText[_rb1.Name].ToString();
 				}
 
-				_rb1.ForeColor = GblHText[_rb1.Name].ToString().Length > 0 ? Color.Lime : Color.White;
+				_rb1.ForeColor = GblHText[_rb1.Name].ToString().Length > 0 ? Color.Yellow : Color.White;
 			}
 		}
 
@@ -242,6 +237,35 @@ namespace iwm_ClipToText
 					}
 				}
 			}
+		}
+
+		private void CmsTextSelect_Open(MouseEventArgs e, TextBox Tb)
+		{
+			if (Tb.SelectionLength > 0 && e.Button == MouseButtons.Left)
+			{
+				TB = Tb;
+				CmsTextSelect.Show(Cursor.Position);
+			}
+		}
+
+		private void CmsTextSelect_コピー_Click(object sender, EventArgs e)
+		{
+			TB.Copy();
+		}
+
+		private void CmsTextSelect_切り取り_Click(object sender, EventArgs e)
+		{
+			TB.Cut();
+		}
+
+		private void CmsTextSelect_削除_Click(object sender, EventArgs e)
+		{
+			TB.SelectedText = "";
+		}
+
+		private void CmsTextSelect_貼り付け_Click(object sender, EventArgs e)
+		{
+			TB.Paste();
 		}
 	}
 }
