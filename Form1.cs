@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20201101";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210124";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -37,6 +37,12 @@ namespace iwm_ClipToText
 
 		private void Form1_Load(object sender, EventArgs e)
 		{
+			StartPosition = FormStartPosition.Manual;
+			DesktopLocation = new Point(
+				(Screen.PrimaryScreen.Bounds.Width - Width) / 2,
+				30
+			);
+
 			Text = VERSION;
 
 			foreach (string _s1 in GblASExt)
