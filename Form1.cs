@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210124";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210217";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -93,6 +93,20 @@ namespace iwm_ClipToText
 					break;
 				}
 			}
+		}
+
+		private void TbResult_DragEnter(object sender, DragEventArgs e)
+		{
+			_ = SB.Clear();
+
+			foreach (string _s1 in (string[])e.Data.GetData(DataFormats.FileDrop, false))
+			{
+				_ = SB.Append(Path.GetFileName(_s1).TrimEnd() + NL);
+			}
+
+			TbResult.Text = SB.ToString();
+
+			_ = SB.Clear();
 		}
 
 		private void CmsResult_クリア_Click(object sender, EventArgs e)
@@ -206,11 +220,14 @@ namespace iwm_ClipToText
 			TextBox TB = TbResult;
 
 			_ = SB.Clear();
+
 			foreach (string _s1 in TB.Text.Split('\n'))
 			{
 				_ = SB.Append(_s1.TrimEnd() + NL);
 			}
+
 			TB.Text = "";
+
 			_ = NativeMethods.SendMessage(TB.Handle, EM_REPLACESEL, 1, SB.ToString());
 
 			using (SaveFileDialog saveFileDialog1 = new SaveFileDialog
@@ -236,6 +253,8 @@ namespace iwm_ClipToText
 					}
 				}
 			}
+
+			_ = SB.Clear();
 		}
 
 		private void CmsTextSelect_Open(MouseEventArgs e, TextBox Tb)
