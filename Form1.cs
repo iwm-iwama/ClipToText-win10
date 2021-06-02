@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210529";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210601";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -128,9 +128,18 @@ namespace iwm_ClipToText
 
 		private void TbResult_DragEnter(object sender, DragEventArgs e)
 		{
+			e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
+		}
+
+		private void TbResult_DragDrop(object sender, DragEventArgs e)
+		{
+			string[] aFn = (string[])e.Data.GetData(DataFormats.FileDrop);
+
+			Directory.SetCurrentDirectory(Path.GetDirectoryName(aFn[0]));
+
 			_ = SB.Clear();
 
-			foreach (string _s1 in (string[])e.Data.GetData(DataFormats.FileDrop, false))
+			foreach (string _s1 in aFn)
 			{
 				_ = SB.Append(Path.GetFileName(_s1).TrimEnd() + NL);
 			}
@@ -261,27 +270,26 @@ namespace iwm_ClipToText
 
 			_ = NativeMethods.SendMessage(TB.Handle, EM_REPLACESEL, 1, SB.ToString());
 
-			using (SaveFileDialog saveFileDialog1 = new SaveFileDialog
+			SaveFileDialog sfd = new SaveFileDialog
 			{
-				InitialDirectory = Environment.SpecialFolder.DesktopDirectory.ToString(),
 				FileName = TbSaveFileName.Text + "." + CbExtension.Text,
 				Filter = "All files (*.*)|*.*",
-				FilterIndex = 1
-			})
-			{
-				if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-				{
-					switch (CbTextCode.Text.ToUpper())
-					{
-						case "UTF-8N":
-							UTF8Encoding utf8nEnc = new UTF8Encoding(false);
-							File.WriteAllText(saveFileDialog1.FileName, TB.Text, utf8nEnc);
-							break;
+				FilterIndex = 1,
+				InitialDirectory = Environment.CurrentDirectory
+			};
 
-						default:
-							File.WriteAllText(saveFileDialog1.FileName, TB.Text, Encoding.GetEncoding("Shift_JIS"));
-							break;
-					}
+			if (sfd.ShowDialog() == DialogResult.OK)
+			{
+				switch (CbTextCode.Text.ToUpper())
+				{
+					case "UTF-8N":
+						UTF8Encoding utf8nEnc = new UTF8Encoding(false);
+						File.WriteAllText(sfd.FileName, TB.Text, utf8nEnc);
+						break;
+
+					default:
+						File.WriteAllText(sfd.FileName, TB.Text, Encoding.GetEncoding("Shift_JIS"));
+						break;
 				}
 			}
 

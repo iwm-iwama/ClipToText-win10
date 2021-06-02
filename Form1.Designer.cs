@@ -90,6 +90,7 @@
 			this.TbResult.TabStop = false;
 			this.TbResult.WordWrap = false;
 			this.TbResult.TextChanged += new System.EventHandler(this.TbResult_TextChanged);
+			this.TbResult.DragDrop += new System.Windows.Forms.DragEventHandler(this.TbResult_DragDrop);
 			this.TbResult.DragEnter += new System.Windows.Forms.DragEventHandler(this.TbResult_DragEnter);
 			this.TbResult.MouseUp += new System.Windows.Forms.MouseEventHandler(this.TbResult_MouseUp);
 			// 
@@ -383,7 +384,7 @@
 			// BtnCopy
 			// 
 			this.BtnCopy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.BtnCopy.BackColor = System.Drawing.Color.DimGray;
+			this.BtnCopy.BackColor = System.Drawing.Color.RoyalBlue;
 			this.BtnCopy.ContextMenuStrip = this.CmsNull;
 			this.BtnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnCopy.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
