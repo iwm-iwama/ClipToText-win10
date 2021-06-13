@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210601";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210613";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -20,7 +20,7 @@ namespace iwm_ClipToText
 
 		private readonly Hashtable GblHText = new Hashtable();
 
-		private TextBox TB = null;
+		private object OBJ = null;
 
 		internal static class NativeMethods
 		{
@@ -149,7 +149,7 @@ namespace iwm_ClipToText
 			_ = SB.Clear();
 		}
 
-		private void CmsResult_クリア_Click(object sender, EventArgs e)
+		private void CmsResult_全クリア_Click(object sender, EventArgs e)
 		{
 			TbResult.Text = "";
 			SubTbResultReload(false);
@@ -167,9 +167,14 @@ namespace iwm_ClipToText
 			SubTbResultReload(false);
 		}
 
-		private void CmsSaveFileName_クリア_Click(object sender, EventArgs e)
+		private void CmsSaveFileName_全クリア_Click(object sender, EventArgs e)
 		{
 			TbSaveFileName.Text = "";
+		}
+
+		private void CmsSaveFileName_貼り付け_Click(object sender, EventArgs e)
+		{
+			TbSaveFileName.Paste();
 		}
 
 		private void CmsSaveFileName_yyyyMMdd_Click(object sender, EventArgs e)
@@ -229,6 +234,11 @@ namespace iwm_ClipToText
 			ToolTip1.SetToolTip(TbSaveFileName, "ファイル名");
 		}
 
+		private void TbSaveFileName_MouseUp(object sender, MouseEventArgs e)
+		{
+			CmsTextSelect_Open(e, TbSaveFileName);
+		}
+
 		private void CbExtension_MouseEnter(object sender, EventArgs e)
 		{
 			ToolTip1.SetToolTip(CbExtension, "拡張子");
@@ -257,18 +267,18 @@ namespace iwm_ClipToText
 
 		private void BtnSaveFile_Click(object sender, EventArgs e)
 		{
-			TextBox TB = TbResult;
+//x			TextBox TB = TbResult;
 
 			_ = SB.Clear();
 
-			foreach (string _s1 in TB.Text.Split('\n'))
+			foreach (string _s1 in TbResult.Text.Split('\n'))
 			{
 				_ = SB.Append(_s1.TrimEnd() + NL);
 			}
 
-			TB.Text = "";
+			TbResult.Text = "";
 
-			_ = NativeMethods.SendMessage(TB.Handle, EM_REPLACESEL, 1, SB.ToString());
+			_ = NativeMethods.SendMessage(TbResult.Handle, EM_REPLACESEL, 1, SB.ToString());
 
 			SaveFileDialog sfd = new SaveFileDialog
 			{
@@ -284,11 +294,11 @@ namespace iwm_ClipToText
 				{
 					case "UTF-8N":
 						UTF8Encoding utf8nEnc = new UTF8Encoding(false);
-						File.WriteAllText(sfd.FileName, TB.Text, utf8nEnc);
+						File.WriteAllText(sfd.FileName, TbResult.Text, utf8nEnc);
 						break;
 
 					default:
-						File.WriteAllText(sfd.FileName, TB.Text, Encoding.GetEncoding("Shift_JIS"));
+						File.WriteAllText(sfd.FileName, TbResult.Text, Encoding.GetEncoding("Shift_JIS"));
 						break;
 				}
 			}
@@ -296,33 +306,84 @@ namespace iwm_ClipToText
 			_ = SB.Clear();
 		}
 
-		private void CmsTextSelect_Open(MouseEventArgs e, TextBox Tb)
+		private void CmsTextSelect_Open(MouseEventArgs e, object Obj)
 		{
-			if (Tb.SelectionLength > 0 && e.Button == MouseButtons.Left)
+			if (e.Button == MouseButtons.Left)
 			{
-				TB = Tb;
-				CmsTextSelect.Show(Cursor.Position);
+				switch (Obj)
+				{
+					case TextBox tb when tb.SelectionLength > 0:
+					case RichTextBox rtb when rtb.SelectionLength > 0:
+						OBJ = Obj;
+						CmsTextSelect.Show(Cursor.Position);
+						break;
+
+					default:
+						OBJ = null;
+						break;
+				}
+			}
+		}
+
+		private void CmsTextSelect_Cancel_Click(object sender, EventArgs e)
+		{
+			CmsTextSelect.Close();
+		}
+
+		private void CmsTextSelect_クリア_Click(object sender, EventArgs e)
+		{
+			switch (OBJ)
+			{
+				case TextBox tb:
+					tb.SelectedText = "";
+					break;
+
+				case RichTextBox rtb:
+					rtb.SelectedText = "";
+					break;
 			}
 		}
 
 		private void CmsTextSelect_コピー_Click(object sender, EventArgs e)
 		{
-			TB.Copy();
+			switch (OBJ)
+			{
+				case TextBox tb:
+					tb.Copy();
+					break;
+
+				case RichTextBox rtb:
+					rtb.Copy();
+					break;
+			}
 		}
 
 		private void CmsTextSelect_切り取り_Click(object sender, EventArgs e)
 		{
-			TB.Cut();
-		}
+			switch (OBJ)
+			{
+				case TextBox tb:
+					tb.Cut();
+					break;
 
-		private void CmsTextSelect_削除_Click(object sender, EventArgs e)
-		{
-			TB.SelectedText = "";
+				case RichTextBox rtb:
+					rtb.Cut();
+					break;
+			}
 		}
 
 		private void CmsTextSelect_貼り付け_Click(object sender, EventArgs e)
 		{
-			TB.Paste();
+			switch (OBJ)
+			{
+				case TextBox tb:
+					tb.Paste();
+					break;
+
+				case RichTextBox rtb:
+					rtb.Paste();
+					break;
+			}
 		}
 	}
 }
