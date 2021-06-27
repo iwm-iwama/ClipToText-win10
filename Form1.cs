@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210613";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210624";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -38,7 +38,7 @@ namespace iwm_ClipToText
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			StartPosition = FormStartPosition.Manual;
-			Form1_StartPosition();
+			SubForm1_StartPosition();
 
 			Text = VERSION;
 
@@ -65,7 +65,7 @@ namespace iwm_ClipToText
 			SubTbResultReload(true);
 		}
 
-		private void Form1_StartPosition()
+		private void SubForm1_StartPosition()
 		{
 			int WorkingAreaW = Screen.PrimaryScreen.WorkingArea.Width;
 			int WorkingAreaH = Screen.PrimaryScreen.WorkingArea.Height;
@@ -328,20 +328,6 @@ namespace iwm_ClipToText
 		private void CmsTextSelect_Cancel_Click(object sender, EventArgs e)
 		{
 			CmsTextSelect.Close();
-		}
-
-		private void CmsTextSelect_クリア_Click(object sender, EventArgs e)
-		{
-			switch (OBJ)
-			{
-				case TextBox tb:
-					tb.SelectedText = "";
-					break;
-
-				case RichTextBox rtb:
-					rtb.SelectedText = "";
-					break;
-			}
 		}
 
 		private void CmsTextSelect_コピー_Click(object sender, EventArgs e)
