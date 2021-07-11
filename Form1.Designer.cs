@@ -73,9 +73,9 @@
 			// TbResult
 			// 
 			this.TbResult.AllowDrop = true;
-			this.TbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.TbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+			| System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.TbResult.BackColor = System.Drawing.Color.Black;
 			this.TbResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.TbResult.ContextMenuStrip = this.CmsResult;
@@ -100,10 +100,10 @@
 			// 
 			this.CmsResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsResult_全クリア,
-            this.CmsResult_全コピー,
-            this.toolStripSeparator2,
-            this.CmsResult_貼り付け});
+			this.CmsResult_全クリア,
+			this.CmsResult_全コピー,
+			this.toolStripSeparator2,
+			this.CmsResult_貼り付け});
 			this.CmsResult.Name = "CmsTbSaveFileName";
 			this.CmsResult.Size = new System.Drawing.Size(116, 76);
 			// 
@@ -161,8 +161,8 @@
 			// 
 			// TbSaveFileName
 			// 
-			this.TbSaveFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.TbSaveFileName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.TbSaveFileName.BackColor = System.Drawing.Color.GhostWhite;
 			this.TbSaveFileName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.TbSaveFileName.ContextMenuStrip = this.CmsSaveFileName;
@@ -179,12 +179,12 @@
 			// 
 			this.CmsSaveFileName.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsSaveFileName.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsSaveFileName_全クリア,
-            this.CmsSaveFileName_貼り付け,
-            this.CmsSaveFileName_L1,
-            this.CmsSaveFileName_yyyyMMdd,
-            this.CmsSaveFileName_yyyyMMddHHmm,
-            this.CmsSaveFileName_yyyyMMddHHmmss});
+			this.CmsSaveFileName_全クリア,
+			this.CmsSaveFileName_貼り付け,
+			this.CmsSaveFileName_L1,
+			this.CmsSaveFileName_yyyyMMdd,
+			this.CmsSaveFileName_yyyyMMddHHmm,
+			this.CmsSaveFileName_yyyyMMddHHmmss});
 			this.CmsSaveFileName.Name = "CmsTbSaveFileName";
 			this.CmsSaveFileName.Size = new System.Drawing.Size(188, 120);
 			// 
@@ -415,12 +415,12 @@
 			// 
 			this.CmsTextSelect.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsTextSelect.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsTextSelect_Cancel,
-            this.toolStripSeparator3,
-            this.CmsTextSelect_コピー,
-            this.CmsTextSelect_切り取り,
-            this.toolStripSeparator1,
-            this.CmsTextSelect_貼り付け});
+			this.CmsTextSelect_Cancel,
+			this.toolStripSeparator3,
+			this.CmsTextSelect_コピー,
+			this.CmsTextSelect_切り取り,
+			this.toolStripSeparator1,
+			this.CmsTextSelect_貼り付け});
 			this.CmsTextSelect.Name = "CmsResult";
 			this.CmsTextSelect.Size = new System.Drawing.Size(181, 126);
 			// 
