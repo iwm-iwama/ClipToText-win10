@@ -267,8 +267,6 @@ namespace iwm_ClipToText
 
 		private void BtnSaveFile_Click(object sender, EventArgs e)
 		{
-//x			TextBox TB = TbResult;
-
 			_ = SB.Clear();
 
 			foreach (string _s1 in TbResult.Text.Split('\n'))
