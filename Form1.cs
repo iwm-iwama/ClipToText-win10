@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210624";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210724";
 		private const string NL = "\r\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
@@ -60,7 +60,7 @@ namespace iwm_ClipToText
 			}
 
 			TbSaveFileName.Text = DateTime.Now.ToString("yyyyMMdd_HHmmss");
-			TbSaveFileName.Select(0, 0);
+			TbSaveFileName.SelectionStart = TbSaveFileName.TextLength;
 
 			SubTbResultReload(true);
 		}
@@ -153,12 +153,6 @@ namespace iwm_ClipToText
 		{
 			TbResult.Text = "";
 			SubTbResultReload(false);
-		}
-
-		private void CmsResult_全コピー_Click(object sender, EventArgs e)
-		{
-			TbResult.SelectAll();
-			TbResult.Copy();
 		}
 
 		private void CmsResult_貼り付け_Click(object sender, EventArgs e)
