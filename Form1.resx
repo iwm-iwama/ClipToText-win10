@@ -145,6 +145,28 @@
         NG8OIecCfN9/IvrESgWW+R/vL3HxPE+7MKv2CCEUonmEegErbanOr3DwnwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="CmsResult_ソート.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAARHRFWHRDb3B5cmlnaHQAQ3Jl
+        YXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbiBOb24tQ29tbWVyY2lhbCBObyBEZXJpdmF0aXZlc3vdsKAA
+        AACoSURBVDhPlYtBCoNAEAQXRVAUDIIoeDAIggdB8CV5wvw0T+uspMUwRnYsqMvUtLtiXVf88ckcZlkW
+        aJlszPMMLZONaZqgZbIxjiO0TDaGYYCWyUbf99Ay2ei6DlqmME3TPNq2hXa78+VMXde4K6dfqqoSL24o
+        nB6UZSleGDyPd4qikDzPceXW+XpNlmWSpim0250vYZIkES9+tI93oigS7zuO4xdPCuc+YOyA4pcTxz0A
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="CmsResult_ソート逆順.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAARHRFWHRDb3B5cmlnaHQAQ3Jl
+        YXRpdmUgQ29tbW9ucyBBdHRyaWJ1dGlvbiBOb24tQ29tbWVyY2lhbCBObyBEZXJpdmF0aXZlc3vdsKAA
+        AAClSURBVDhPlYzhBoRAFEYT82OIVj8iJhGT0hDzRPOm+2jfNnxse9N2OxzDPXdu8Y8YY9p955cjPdu2
+        pV0c1B9Z1zWFECDNc65cM89zWpYFV+bO1TPe+zRNE+7Me/zyZRzHtIsH/h4ZhgFP5dczfd+/nHOQ5jlX
+        7um6DlImHW3bQsqko2kaSJl01HUNKZOOqqogZdJhrYWUSYcxBlImHWVZQsp0oCg+jsKF1uaMQPwAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
   <metadata name="CmsNull.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

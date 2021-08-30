@@ -62,6 +62,9 @@
 			this.CmsTextSelect_切り取り = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.CmsTextSelect_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_ソート = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsResult_ソート逆順 = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult.SuspendLayout();
 			this.CmsSaveFileName.SuspendLayout();
 			this.GrpRB.SuspendLayout();
@@ -99,15 +102,18 @@
 			this.CmsResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CmsResult_全クリア,
-            this.CmsResult_貼り付け});
+            this.CmsResult_貼り付け,
+            this.toolStripMenuItem1,
+            this.CmsResult_ソート,
+            this.CmsResult_ソート逆順});
 			this.CmsResult.Name = "CmsTbSaveFileName";
-			this.CmsResult.Size = new System.Drawing.Size(116, 48);
+			this.CmsResult.Size = new System.Drawing.Size(181, 120);
 			// 
 			// CmsResult_全クリア
 			// 
 			this.CmsResult_全クリア.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_全クリア.Image")));
 			this.CmsResult_全クリア.Name = "CmsResult_全クリア";
-			this.CmsResult_全クリア.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_全クリア.Size = new System.Drawing.Size(180, 22);
 			this.CmsResult_全クリア.Text = "全クリア";
 			this.CmsResult_全クリア.Click += new System.EventHandler(this.CmsResult_全クリア_Click);
 			// 
@@ -115,7 +121,7 @@
 			// 
 			this.CmsResult_貼り付け.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_貼り付け.Image")));
 			this.CmsResult_貼り付け.Name = "CmsResult_貼り付け";
-			this.CmsResult_貼り付け.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_貼り付け.Size = new System.Drawing.Size(180, 22);
 			this.CmsResult_貼り付け.Text = "貼り付け";
 			this.CmsResult_貼り付け.Click += new System.EventHandler(this.CmsResult_貼り付け_Click);
 			// 
@@ -451,6 +457,27 @@
 			this.CmsTextSelect_貼り付け.Text = "貼り付け";
 			this.CmsTextSelect_貼り付け.Click += new System.EventHandler(this.CmsTextSelect_貼り付け_Click);
 			// 
+			// CmsResult_ソート
+			// 
+			this.CmsResult_ソート.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_ソート.Image")));
+			this.CmsResult_ソート.Name = "CmsResult_ソート";
+			this.CmsResult_ソート.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_ソート.Text = "ソート";
+			this.CmsResult_ソート.Click += new System.EventHandler(this.CmsResult_ソート_Click);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+			// 
+			// CmsResult_ソート逆順
+			// 
+			this.CmsResult_ソート逆順.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_ソート逆順.Image")));
+			this.CmsResult_ソート逆順.Name = "CmsResult_ソート逆順";
+			this.CmsResult_ソート逆順.Size = new System.Drawing.Size(180, 22);
+			this.CmsResult_ソート逆順.Text = "ソート逆順";
+			this.CmsResult_ソート逆順.Click += new System.EventHandler(this.CmsResult_ソート逆順_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -518,6 +545,9 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_Cancel;
 		private System.Windows.Forms.ToolStripMenuItem CmsSaveFileName_貼り付け;
+		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_ソート;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_ソート逆順;
 	}
 }
 

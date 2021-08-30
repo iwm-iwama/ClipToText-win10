@@ -11,8 +11,10 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210724";
+		private const string VERSION = "クリップボードからテキストファイル生成 iwm20210830";
+
 		private const string NL = "\r\n";
+		private const string RgxNL = "\r*\n";
 
 		private readonly string[] GblASExt = { "txt", "html", "csv", "tsv" };
 		private readonly string[] GblASTextCode = { "Shift_JIS", "UTF-8N" };
@@ -111,9 +113,29 @@ namespace iwm_ClipToText
 
 		private void SubTbResultReload(bool bGetClip)
 		{
-			if (bGetClip && Clipboard.ContainsText())
+			if (bGetClip)
 			{
-				TbResult.Text = Regex.Replace(Clipboard.GetText(), "\r*\n", NL);
+				if (Clipboard.ContainsText())
+				{
+					TbResult.Text = Regex.Replace(Clipboard.GetText(), RgxNL, NL);
+				}
+				else if (Clipboard.ContainsFileDropList())
+				{
+					_ = SB.Clear();
+					foreach (string _s1 in Clipboard.GetFileDropList())
+					{
+						_ = SB.Append(_s1);
+
+						if (Directory.Exists(_s1))
+						{
+							_ = SB.Append("\\");
+						}
+
+						_ = SB.Append(NL);
+					}
+
+					TbResult.Text = SB.ToString();
+				}
 			}
 
 			foreach (RadioButton _rb1 in GrpRB.Controls)
@@ -133,20 +155,21 @@ namespace iwm_ClipToText
 
 		private void TbResult_DragDrop(object sender, DragEventArgs e)
 		{
-			string[] aFn = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-			Directory.SetCurrentDirectory(Path.GetDirectoryName(aFn[0]));
-
 			_ = SB.Clear();
 
-			foreach (string _s1 in aFn)
+			foreach (string _s1 in (string[])e.Data.GetData(DataFormats.FileDrop))
 			{
-				_ = SB.Append(Path.GetFileName(_s1).TrimEnd() + NL);
+				_ = SB.Append(_s1);
+
+				if (Directory.Exists(_s1))
+				{
+					_ = SB.Append("\\");
+				}
+
+				_ = SB.Append(NL);
 			}
 
 			TbResult.Text = SB.ToString();
-
-			_ = SB.Clear();
 		}
 
 		private void CmsResult_全クリア_Click(object sender, EventArgs e)
@@ -158,6 +181,7 @@ namespace iwm_ClipToText
 		private void CmsResult_貼り付け_Click(object sender, EventArgs e)
 		{
 			TbResult.Paste();
+			TbResult.Text = Regex.Replace(TbResult.Text, RgxNL, NL);
 			SubTbResultReload(false);
 		}
 
@@ -261,17 +285,6 @@ namespace iwm_ClipToText
 
 		private void BtnSaveFile_Click(object sender, EventArgs e)
 		{
-			_ = SB.Clear();
-
-			foreach (string _s1 in TbResult.Text.Split('\n'))
-			{
-				_ = SB.Append(_s1.TrimEnd() + NL);
-			}
-
-			TbResult.Text = "";
-
-			_ = NativeMethods.SendMessage(TbResult.Handle, EM_REPLACESEL, 1, SB.ToString());
-
 			SaveFileDialog sfd = new SaveFileDialog
 			{
 				FileName = TbSaveFileName.Text + "." + CbExtension.Text,
@@ -294,8 +307,6 @@ namespace iwm_ClipToText
 						break;
 				}
 			}
-
-			_ = SB.Clear();
 		}
 
 		private void CmsTextSelect_Open(MouseEventArgs e, object Obj)
@@ -362,6 +373,30 @@ namespace iwm_ClipToText
 					rtb.Paste();
 					break;
 			}
+		}
+
+		private void CmsResult_ソート_Click(object sender, EventArgs e)
+		{
+			TbResult.Text = RtnTextSort(TbResult.Text, true);
+		}
+
+		private void CmsResult_ソート逆順_Click(object sender, EventArgs e)
+		{
+			TbResult.Text = RtnTextSort(TbResult.Text, false);
+		}
+
+		private string RtnTextSort(string str, bool bOrder)
+		{
+			string[] a1 = Regex.Split(str, NL);
+
+			Array.Sort(a1);
+
+			if (!bOrder)
+			{
+				Array.Reverse(a1);
+			}
+
+			return string.Join(NL, a1).Trim() + NL;
 		}
 	}
 }
