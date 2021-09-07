@@ -11,7 +11,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20210906";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20210907";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r*\n";
@@ -105,7 +105,7 @@ namespace iwm_ClipToText
 				}
 				_ = sb.Append(NL);
 			}
-			return $"[{Path.GetDirectoryName(ls[0])}\\]" + NL + sb.ToString();
+			return "[" + Path.GetDirectoryName(ls[0]).TrimEnd('\\') + "\\]" + NL + sb.ToString();
 		}
 
 		private void SubTbResultReload(bool bGetClip)
