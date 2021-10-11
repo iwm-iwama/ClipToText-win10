@@ -1,4 +1,5 @@
-﻿namespace iwm_ClipToText
+﻿
+namespace iwm_ClipToText
 {
 	partial class Form1
 	{
@@ -30,22 +31,38 @@
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.TbResult = new System.Windows.Forms.TextBox();
 			this.CmsResult = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.CmsResult_全クリア = new System.Windows.Forms.ToolStripMenuItem();
 			this.CmsResult_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
-			this.BtnSaveFile = new System.Windows.Forms.Button();
-			this.CmsNull = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.CbTextCode = new System.Windows.Forms.ComboBox();
-			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsResult_名前を付けて保存 = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_名前を付けて保存_SJIS = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_名前を付けて保存_UTF8N = new System.Windows.Forms.ToolStripMenuItem();
+			this.MstResult = new System.Windows.Forms.MenuStrip();
+			this.TsmResultIndex = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResultIndex01 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResultIndex02 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResultIndex03 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResultIndex04 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResultIndex05 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult01 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult02 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult03 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult04 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult05 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResultHelp = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmbSearch = new System.Windows.Forms.ComboBox();
+			this.CmsSearch = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.CmsSearch_全クリア = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsSearch_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
+			this.BtnSearch = new System.Windows.Forms.Label();
+			this.BtnSearchClear = new System.Windows.Forms.Button();
 			this.BtnReload = new System.Windows.Forms.Button();
-			this.GrpRB = new System.Windows.Forms.GroupBox();
-			this.RB05 = new System.Windows.Forms.RadioButton();
-			this.RB04 = new System.Windows.Forms.RadioButton();
-			this.RB03 = new System.Windows.Forms.RadioButton();
-			this.RB02 = new System.Windows.Forms.RadioButton();
-			this.RB01 = new System.Windows.Forms.RadioButton();
+			this.CmsNull = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.BtnCopy = new System.Windows.Forms.Button();
+			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.CmsTextSelect = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.CmsTextSelect_Cancel = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -53,10 +70,48 @@
 			this.CmsTextSelect_切り取り = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.CmsTextSelect_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+			this.splitContainer1.Panel1.SuspendLayout();
+			this.splitContainer1.Panel2.SuspendLayout();
+			this.splitContainer1.SuspendLayout();
 			this.CmsResult.SuspendLayout();
-			this.GrpRB.SuspendLayout();
+			this.MstResult.SuspendLayout();
+			this.CmsSearch.SuspendLayout();
 			this.CmsTextSelect.SuspendLayout();
 			this.SuspendLayout();
+			// 
+			// splitContainer1
+			// 
+			this.splitContainer1.BackColor = System.Drawing.Color.DimGray;
+			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+			this.splitContainer1.ForeColor = System.Drawing.Color.White;
+			this.splitContainer1.IsSplitterFixed = true;
+			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
+			this.splitContainer1.Name = "splitContainer1";
+			this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// splitContainer1.Panel1
+			// 
+			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.DimGray;
+			this.splitContainer1.Panel1.Controls.Add(this.TbResult);
+			this.splitContainer1.Panel1.Controls.Add(this.MstResult);
+			this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.White;
+			// 
+			// splitContainer1.Panel2
+			// 
+			this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DimGray;
+			this.splitContainer1.Panel2.Controls.Add(this.CmbSearch);
+			this.splitContainer1.Panel2.Controls.Add(this.BtnSearch);
+			this.splitContainer1.Panel2.Controls.Add(this.BtnSearchClear);
+			this.splitContainer1.Panel2.Controls.Add(this.BtnReload);
+			this.splitContainer1.Panel2.Controls.Add(this.BtnCopy);
+			this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.White;
+			this.splitContainer1.Size = new System.Drawing.Size(304, 131);
+			this.splitContainer1.SplitterDistance = 90;
+			this.splitContainer1.TabIndex = 0;
+			this.splitContainer1.TabStop = false;
 			// 
 			// TbResult
 			// 
@@ -67,7 +122,7 @@
 			this.TbResult.BackColor = System.Drawing.Color.Black;
 			this.TbResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.TbResult.ContextMenuStrip = this.CmsResult;
-			this.TbResult.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TbResult.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.TbResult.ForeColor = System.Drawing.Color.Lime;
 			this.TbResult.Location = new System.Drawing.Point(5, 5);
 			this.TbResult.Margin = new System.Windows.Forms.Padding(0);
@@ -75,8 +130,9 @@
 			this.TbResult.Multiline = true;
 			this.TbResult.Name = "TbResult";
 			this.TbResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.TbResult.Size = new System.Drawing.Size(294, 110);
-			this.TbResult.TabIndex = 1;
+			this.TbResult.Size = new System.Drawing.Size(294, 67);
+			this.TbResult.TabIndex = 0;
+			this.TbResult.TabStop = false;
 			this.TbResult.WordWrap = false;
 			this.TbResult.TextChanged += new System.EventHandler(this.TbResult_TextChanged);
 			this.TbResult.DragDrop += new System.Windows.Forms.DragEventHandler(this.TbResult_DragDrop);
@@ -88,15 +144,17 @@
 			this.CmsResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CmsResult_全クリア,
-            this.CmsResult_貼り付け});
+            this.CmsResult_貼り付け,
+            this.toolStripSeparator2,
+            this.CmsResult_名前を付けて保存});
 			this.CmsResult.Name = "CmsTbSaveFileName";
-			this.CmsResult.Size = new System.Drawing.Size(116, 48);
+			this.CmsResult.Size = new System.Drawing.Size(162, 76);
 			// 
 			// CmsResult_全クリア
 			// 
 			this.CmsResult_全クリア.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_全クリア.Image")));
 			this.CmsResult_全クリア.Name = "CmsResult_全クリア";
-			this.CmsResult_全クリア.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_全クリア.Size = new System.Drawing.Size(161, 22);
 			this.CmsResult_全クリア.Text = "全クリア";
 			this.CmsResult_全クリア.Click += new System.EventHandler(this.CmsResult_全クリア_Click);
 			// 
@@ -104,55 +162,264 @@
 			// 
 			this.CmsResult_貼り付け.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_貼り付け.Image")));
 			this.CmsResult_貼り付け.Name = "CmsResult_貼り付け";
-			this.CmsResult_貼り付け.Size = new System.Drawing.Size(115, 22);
+			this.CmsResult_貼り付け.Size = new System.Drawing.Size(161, 22);
 			this.CmsResult_貼り付け.Text = "貼り付け";
 			this.CmsResult_貼り付け.Click += new System.EventHandler(this.CmsResult_貼り付け_Click);
 			// 
-			// BtnSaveFile
+			// toolStripSeparator2
 			// 
-			this.BtnSaveFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnSaveFile.BackColor = System.Drawing.Color.DimGray;
-			this.BtnSaveFile.ContextMenuStrip = this.CmsNull;
-			this.BtnSaveFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.BtnSaveFile.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.BtnSaveFile.ForeColor = System.Drawing.Color.White;
-			this.BtnSaveFile.Location = new System.Drawing.Point(253, 148);
-			this.BtnSaveFile.Margin = new System.Windows.Forms.Padding(0);
-			this.BtnSaveFile.Name = "BtnSaveFile";
-			this.BtnSaveFile.Size = new System.Drawing.Size(45, 22);
-			this.BtnSaveFile.TabIndex = 0;
-			this.BtnSaveFile.TabStop = false;
-			this.BtnSaveFile.Text = "保存";
-			this.BtnSaveFile.UseVisualStyleBackColor = false;
-			this.BtnSaveFile.Click += new System.EventHandler(this.BtnSaveFile_Click);
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
 			// 
-			// CmsNull
+			// CmsResult_名前を付けて保存
 			// 
-			this.CmsNull.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.CmsNull.Name = "CmsNull";
-			this.CmsNull.Size = new System.Drawing.Size(61, 4);
+			this.CmsResult_名前を付けて保存.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CmsResult_名前を付けて保存_SJIS,
+            this.CmsResult_名前を付けて保存_UTF8N});
+			this.CmsResult_名前を付けて保存.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_名前を付けて保存.Image")));
+			this.CmsResult_名前を付けて保存.Name = "CmsResult_名前を付けて保存";
+			this.CmsResult_名前を付けて保存.Size = new System.Drawing.Size(161, 22);
+			this.CmsResult_名前を付けて保存.Text = "名前を付けて保存";
 			// 
-			// CbTextCode
+			// CmsResult_名前を付けて保存_SJIS
 			// 
-			this.CbTextCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.CbTextCode.BackColor = System.Drawing.Color.DimGray;
-			this.CbTextCode.ContextMenuStrip = this.CmsNull;
-			this.CbTextCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.CbTextCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.CbTextCode.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.CbTextCode.ForeColor = System.Drawing.Color.White;
-			this.CbTextCode.FormattingEnabled = true;
-			this.CbTextCode.Location = new System.Drawing.Point(163, 149);
-			this.CbTextCode.Margin = new System.Windows.Forms.Padding(0);
-			this.CbTextCode.Name = "CbTextCode";
-			this.CbTextCode.Size = new System.Drawing.Size(84, 20);
-			this.CbTextCode.TabIndex = 0;
-			this.CbTextCode.TabStop = false;
-			this.CbTextCode.MouseEnter += new System.EventHandler(this.CbTextCode_MouseEnter);
+			this.CmsResult_名前を付けて保存_SJIS.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_名前を付けて保存_SJIS.Image")));
+			this.CmsResult_名前を付けて保存_SJIS.Name = "CmsResult_名前を付けて保存_SJIS";
+			this.CmsResult_名前を付けて保存_SJIS.Size = new System.Drawing.Size(116, 22);
+			this.CmsResult_名前を付けて保存_SJIS.Text = "Shift_JIS";
+			this.CmsResult_名前を付けて保存_SJIS.Click += new System.EventHandler(this.CmsResult_名前を付けて保存_SJIS_Click);
 			// 
-			// ToolTip1
+			// CmsResult_名前を付けて保存_UTF8N
 			// 
-			this.ToolTip1.AutomaticDelay = 1000;
+			this.CmsResult_名前を付けて保存_UTF8N.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_名前を付けて保存_UTF8N.Image")));
+			this.CmsResult_名前を付けて保存_UTF8N.Name = "CmsResult_名前を付けて保存_UTF8N";
+			this.CmsResult_名前を付けて保存_UTF8N.Size = new System.Drawing.Size(116, 22);
+			this.CmsResult_名前を付けて保存_UTF8N.Text = "UTF-8N";
+			this.CmsResult_名前を付けて保存_UTF8N.Click += new System.EventHandler(this.CmsResult_名前を付けて保存_UTF8N_Click);
+			// 
+			// MstResult
+			// 
+			this.MstResult.BackColor = System.Drawing.Color.DimGray;
+			this.MstResult.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.MstResult.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.MstResult.GripMargin = new System.Windows.Forms.Padding(0);
+			this.MstResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmResultIndex,
+            this.TsmResult01,
+            this.TsmResult02,
+            this.TsmResult03,
+            this.TsmResult04,
+            this.TsmResult05,
+            this.TsmResultHelp});
+			this.MstResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+			this.MstResult.Location = new System.Drawing.Point(0, 54);
+			this.MstResult.Name = "MstResult";
+			this.MstResult.Padding = new System.Windows.Forms.Padding(4, 0, 0, 0);
+			this.MstResult.Size = new System.Drawing.Size(304, 36);
+			this.MstResult.TabIndex = 1;
+			this.MstResult.TabStop = true;
+			this.MstResult.Text = "menuStrip1";
+			// 
+			// TsmResultIndex
+			// 
+			this.TsmResultIndex.BackColor = System.Drawing.Color.Azure;
+			this.TsmResultIndex.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TsmResultIndex01,
+            this.TsmResultIndex02,
+            this.TsmResultIndex03,
+            this.TsmResultIndex04,
+            this.TsmResultIndex05});
+			this.TsmResultIndex.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResultIndex.ForeColor = System.Drawing.Color.DimGray;
+			this.TsmResultIndex.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+			this.TsmResultIndex.Name = "TsmResultIndex";
+			this.TsmResultIndex.Padding = new System.Windows.Forms.Padding(4, 1, 4, 0);
+			this.TsmResultIndex.Size = new System.Drawing.Size(47, 17);
+			this.TsmResultIndex.Text = "Index";
+			this.TsmResultIndex.Click += new System.EventHandler(this.TsmResultIndex_Click);
+			// 
+			// TsmResultIndex01
+			// 
+			this.TsmResultIndex01.Name = "TsmResultIndex01";
+			this.TsmResultIndex01.Size = new System.Drawing.Size(180, 22);
+			this.TsmResultIndex01.Click += new System.EventHandler(this.TsmResultIndex01_Click);
+			// 
+			// TsmResultIndex02
+			// 
+			this.TsmResultIndex02.Name = "TsmResultIndex02";
+			this.TsmResultIndex02.Size = new System.Drawing.Size(180, 22);
+			this.TsmResultIndex02.Click += new System.EventHandler(this.TsmResultIndex02_Click);
+			// 
+			// TsmResultIndex03
+			// 
+			this.TsmResultIndex03.Name = "TsmResultIndex03";
+			this.TsmResultIndex03.Size = new System.Drawing.Size(180, 22);
+			this.TsmResultIndex03.Click += new System.EventHandler(this.TsmResultIndex03_Click);
+			// 
+			// TsmResultIndex04
+			// 
+			this.TsmResultIndex04.Name = "TsmResultIndex04";
+			this.TsmResultIndex04.Size = new System.Drawing.Size(180, 22);
+			this.TsmResultIndex04.Click += new System.EventHandler(this.TsmResultIndex04_Click);
+			// 
+			// TsmResultIndex05
+			// 
+			this.TsmResultIndex05.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+			this.TsmResultIndex05.Name = "TsmResultIndex05";
+			this.TsmResultIndex05.Size = new System.Drawing.Size(180, 22);
+			this.TsmResultIndex05.Click += new System.EventHandler(this.TsmResultIndex05_Click);
+			// 
+			// TsmResult01
+			// 
+			this.TsmResult01.BackColor = System.Drawing.Color.Crimson;
+			this.TsmResult01.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResult01.ForeColor = System.Drawing.Color.White;
+			this.TsmResult01.Name = "TsmResult01";
+			this.TsmResult01.Padding = new System.Windows.Forms.Padding(14, 1, 14, 0);
+			this.TsmResult01.Size = new System.Drawing.Size(43, 17);
+			this.TsmResult01.Text = "1";
+			this.TsmResult01.Click += new System.EventHandler(this.TsmResult01_Click);
+			// 
+			// TsmResult02
+			// 
+			this.TsmResult02.BackColor = System.Drawing.Color.Crimson;
+			this.TsmResult02.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResult02.ForeColor = System.Drawing.Color.White;
+			this.TsmResult02.Name = "TsmResult02";
+			this.TsmResult02.Padding = new System.Windows.Forms.Padding(14, 1, 14, 0);
+			this.TsmResult02.Size = new System.Drawing.Size(43, 17);
+			this.TsmResult02.Text = "2";
+			this.TsmResult02.Click += new System.EventHandler(this.TsmResult02_Click);
+			// 
+			// TsmResult03
+			// 
+			this.TsmResult03.BackColor = System.Drawing.Color.Crimson;
+			this.TsmResult03.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResult03.ForeColor = System.Drawing.Color.White;
+			this.TsmResult03.Name = "TsmResult03";
+			this.TsmResult03.Padding = new System.Windows.Forms.Padding(14, 1, 14, 0);
+			this.TsmResult03.Size = new System.Drawing.Size(43, 17);
+			this.TsmResult03.Text = "3";
+			this.TsmResult03.Click += new System.EventHandler(this.TsmResult03_Click);
+			// 
+			// TsmResult04
+			// 
+			this.TsmResult04.BackColor = System.Drawing.Color.Crimson;
+			this.TsmResult04.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResult04.ForeColor = System.Drawing.Color.White;
+			this.TsmResult04.Name = "TsmResult04";
+			this.TsmResult04.Padding = new System.Windows.Forms.Padding(14, 1, 14, 0);
+			this.TsmResult04.Size = new System.Drawing.Size(43, 17);
+			this.TsmResult04.Text = "4";
+			this.TsmResult04.Click += new System.EventHandler(this.TsmResult04_Click);
+			// 
+			// TsmResult05
+			// 
+			this.TsmResult05.BackColor = System.Drawing.Color.Crimson;
+			this.TsmResult05.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResult05.ForeColor = System.Drawing.Color.White;
+			this.TsmResult05.Name = "TsmResult05";
+			this.TsmResult05.Padding = new System.Windows.Forms.Padding(14, 1, 14, 0);
+			this.TsmResult05.Size = new System.Drawing.Size(43, 17);
+			this.TsmResult05.Text = "5";
+			this.TsmResult05.Click += new System.EventHandler(this.TsmResult05_Click);
+			// 
+			// TsmResultHelp
+			// 
+			this.TsmResultHelp.BackColor = System.Drawing.Color.Azure;
+			this.TsmResultHelp.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.TsmResultHelp.ForeColor = System.Drawing.Color.Black;
+			this.TsmResultHelp.Name = "TsmResultHelp";
+			this.TsmResultHelp.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
+			this.TsmResultHelp.Size = new System.Drawing.Size(22, 17);
+			this.TsmResultHelp.Text = "？";
+			this.TsmResultHelp.Click += new System.EventHandler(this.TsmResultHelp_Click);
+			// 
+			// CmbSearch
+			// 
+			this.CmbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.CmbSearch.BackColor = System.Drawing.Color.White;
+			this.CmbSearch.ContextMenuStrip = this.CmsSearch;
+			this.CmbSearch.DropDownHeight = 121;
+			this.CmbSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.CmbSearch.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.CmbSearch.ForeColor = System.Drawing.Color.Black;
+			this.CmbSearch.FormattingEnabled = true;
+			this.CmbSearch.IntegralHeight = false;
+			this.CmbSearch.ItemHeight = 13;
+			this.CmbSearch.Location = new System.Drawing.Point(158, 7);
+			this.CmbSearch.Margin = new System.Windows.Forms.Padding(0);
+			this.CmbSearch.MaxDropDownItems = 1;
+			this.CmbSearch.Name = "CmbSearch";
+			this.CmbSearch.Size = new System.Drawing.Size(100, 21);
+			this.CmbSearch.TabIndex = 2;
+			this.ToolTip1.SetToolTip(this.CmbSearch, "正規表現による検索");
+			this.CmbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbSearch_KeyPress);
+			this.CmbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CmbSearch_KeyUp);
+			this.CmbSearch.MouseEnter += new System.EventHandler(this.CmbSearch_MouseEnter);
+			// 
+			// CmsSearch
+			// 
+			this.CmsSearch.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.CmsSearch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CmsSearch_全クリア,
+            this.CmsSearch_貼り付け});
+			this.CmsSearch.Name = "CmsTbSaveFileName";
+			this.CmsSearch.Size = new System.Drawing.Size(116, 48);
+			// 
+			// CmsSearch_全クリア
+			// 
+			this.CmsSearch_全クリア.Image = ((System.Drawing.Image)(resources.GetObject("CmsSearch_全クリア.Image")));
+			this.CmsSearch_全クリア.Name = "CmsSearch_全クリア";
+			this.CmsSearch_全クリア.Size = new System.Drawing.Size(115, 22);
+			this.CmsSearch_全クリア.Text = "全クリア";
+			this.CmsSearch_全クリア.Click += new System.EventHandler(this.CmsSearch_全クリア_Click);
+			// 
+			// CmsSearch_貼り付け
+			// 
+			this.CmsSearch_貼り付け.Image = ((System.Drawing.Image)(resources.GetObject("CmsSearch_貼り付け.Image")));
+			this.CmsSearch_貼り付け.Name = "CmsSearch_貼り付け";
+			this.CmsSearch_貼り付け.Size = new System.Drawing.Size(115, 22);
+			this.CmsSearch_貼り付け.Text = "貼り付け";
+			this.CmsSearch_貼り付け.Click += new System.EventHandler(this.CmsSearch_貼り付け_Click);
+			// 
+			// BtnSearch
+			// 
+			this.BtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.BtnSearch.AutoSize = true;
+			this.BtnSearch.BackColor = System.Drawing.Color.White;
+			this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.BtnSearch.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.BtnSearch.ForeColor = System.Drawing.Color.Black;
+			this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
+			this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.BtnSearch.Location = new System.Drawing.Point(258, 7);
+			this.BtnSearch.Margin = new System.Windows.Forms.Padding(0);
+			this.BtnSearch.Name = "BtnSearch";
+			this.BtnSearch.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+			this.BtnSearch.Size = new System.Drawing.Size(21, 21);
+			this.BtnSearch.TabIndex = 0;
+			this.BtnSearch.Text = "  ";
+			this.BtnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
+			// 
+			// BtnSearchClear
+			// 
+			this.BtnSearchClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.BtnSearchClear.BackColor = System.Drawing.Color.White;
+			this.BtnSearchClear.FlatAppearance.BorderSize = 0;
+			this.BtnSearchClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.BtnSearchClear.Font = new System.Drawing.Font("游ゴシック", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.BtnSearchClear.ForeColor = System.Drawing.Color.Black;
+			this.BtnSearchClear.Location = new System.Drawing.Point(279, 7);
+			this.BtnSearchClear.Margin = new System.Windows.Forms.Padding(0);
+			this.BtnSearchClear.Name = "BtnSearchClear";
+			this.BtnSearchClear.Size = new System.Drawing.Size(19, 21);
+			this.BtnSearchClear.TabIndex = 3;
+			this.BtnSearchClear.Text = "✖";
+			this.BtnSearchClear.UseVisualStyleBackColor = false;
+			this.BtnSearchClear.Click += new System.EventHandler(this.BtnSearchClear_Click);
 			// 
 			// BtnReload
 			// 
@@ -162,122 +429,22 @@
 			this.BtnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnReload.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnReload.ForeColor = System.Drawing.Color.White;
-			this.BtnReload.Location = new System.Drawing.Point(5, 147);
+			this.BtnReload.Location = new System.Drawing.Point(5, 5);
 			this.BtnReload.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnReload.Name = "BtnReload";
-			this.BtnReload.Size = new System.Drawing.Size(75, 24);
+			this.BtnReload.Size = new System.Drawing.Size(65, 24);
 			this.BtnReload.TabIndex = 0;
 			this.BtnReload.TabStop = false;
 			this.BtnReload.Text = "再読込";
+			this.ToolTip1.SetToolTip(this.BtnReload, "クリップボードから再読込");
 			this.BtnReload.UseVisualStyleBackColor = false;
 			this.BtnReload.Click += new System.EventHandler(this.BtnReload_Click);
-			this.BtnReload.MouseEnter += new System.EventHandler(this.BtnReload_MouseEnter);
 			// 
-			// GrpRB
+			// CmsNull
 			// 
-			this.GrpRB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.GrpRB.BackColor = System.Drawing.Color.DimGray;
-			this.GrpRB.Controls.Add(this.RB05);
-			this.GrpRB.Controls.Add(this.RB04);
-			this.GrpRB.Controls.Add(this.RB03);
-			this.GrpRB.Controls.Add(this.RB02);
-			this.GrpRB.Controls.Add(this.RB01);
-			this.GrpRB.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.GrpRB.ForeColor = System.Drawing.Color.White;
-			this.GrpRB.Location = new System.Drawing.Point(5, 110);
-			this.GrpRB.Margin = new System.Windows.Forms.Padding(0);
-			this.GrpRB.Name = "GrpRB";
-			this.GrpRB.Padding = new System.Windows.Forms.Padding(0);
-			this.GrpRB.Size = new System.Drawing.Size(294, 30);
-			this.GrpRB.TabIndex = 0;
-			this.GrpRB.TabStop = false;
-			// 
-			// RB05
-			// 
-			this.RB05.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.RB05.AutoSize = true;
-			this.RB05.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.RB05.ForeColor = System.Drawing.Color.White;
-			this.RB05.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.RB05.Location = new System.Drawing.Point(225, 9);
-			this.RB05.Margin = new System.Windows.Forms.Padding(0);
-			this.RB05.Name = "RB05";
-			this.RB05.Padding = new System.Windows.Forms.Padding(3, 1, 3, 0);
-			this.RB05.Size = new System.Drawing.Size(47, 17);
-			this.RB05.TabIndex = 0;
-			this.RB05.Text = "5th";
-			this.RB05.UseVisualStyleBackColor = true;
-			this.RB05.CheckedChanged += new System.EventHandler(this.RB05_CheckedChanged);
-			// 
-			// RB04
-			// 
-			this.RB04.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.RB04.AutoSize = true;
-			this.RB04.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.RB04.ForeColor = System.Drawing.Color.White;
-			this.RB04.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.RB04.Location = new System.Drawing.Point(170, 9);
-			this.RB04.Margin = new System.Windows.Forms.Padding(0);
-			this.RB04.Name = "RB04";
-			this.RB04.Padding = new System.Windows.Forms.Padding(3, 1, 3, 0);
-			this.RB04.Size = new System.Drawing.Size(47, 17);
-			this.RB04.TabIndex = 0;
-			this.RB04.Text = "4th";
-			this.RB04.UseVisualStyleBackColor = true;
-			this.RB04.CheckedChanged += new System.EventHandler(this.RB04_CheckedChanged);
-			// 
-			// RB03
-			// 
-			this.RB03.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.RB03.AutoSize = true;
-			this.RB03.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.RB03.ForeColor = System.Drawing.Color.White;
-			this.RB03.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.RB03.Location = new System.Drawing.Point(115, 9);
-			this.RB03.Margin = new System.Windows.Forms.Padding(0);
-			this.RB03.Name = "RB03";
-			this.RB03.Padding = new System.Windows.Forms.Padding(3, 1, 3, 0);
-			this.RB03.Size = new System.Drawing.Size(47, 17);
-			this.RB03.TabIndex = 0;
-			this.RB03.Text = "3rd";
-			this.RB03.UseVisualStyleBackColor = true;
-			this.RB03.CheckedChanged += new System.EventHandler(this.RB03_CheckedChanged);
-			// 
-			// RB02
-			// 
-			this.RB02.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.RB02.AutoSize = true;
-			this.RB02.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.RB02.ForeColor = System.Drawing.Color.White;
-			this.RB02.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.RB02.Location = new System.Drawing.Point(60, 9);
-			this.RB02.Margin = new System.Windows.Forms.Padding(0);
-			this.RB02.Name = "RB02";
-			this.RB02.Padding = new System.Windows.Forms.Padding(3, 1, 3, 0);
-			this.RB02.Size = new System.Drawing.Size(47, 17);
-			this.RB02.TabIndex = 0;
-			this.RB02.Text = "2nd";
-			this.RB02.UseVisualStyleBackColor = true;
-			this.RB02.CheckedChanged += new System.EventHandler(this.RB02_CheckedChanged);
-			// 
-			// RB01
-			// 
-			this.RB01.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.RB01.AutoSize = true;
-			this.RB01.BackColor = System.Drawing.Color.DimGray;
-			this.RB01.Checked = true;
-			this.RB01.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-			this.RB01.ForeColor = System.Drawing.Color.White;
-			this.RB01.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.RB01.Location = new System.Drawing.Point(5, 9);
-			this.RB01.Margin = new System.Windows.Forms.Padding(0);
-			this.RB01.Name = "RB01";
-			this.RB01.Padding = new System.Windows.Forms.Padding(3, 1, 3, 0);
-			this.RB01.Size = new System.Drawing.Size(47, 17);
-			this.RB01.TabIndex = 0;
-			this.RB01.Text = "1st";
-			this.RB01.UseVisualStyleBackColor = false;
-			this.RB01.CheckedChanged += new System.EventHandler(this.RB01_CheckedChanged);
+			this.CmsNull.BackColor = System.Drawing.SystemColors.ControlLightLight;
+			this.CmsNull.Name = "CmsNull";
+			this.CmsNull.Size = new System.Drawing.Size(61, 4);
 			// 
 			// BtnCopy
 			// 
@@ -287,15 +454,20 @@
 			this.BtnCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnCopy.Font = new System.Drawing.Font("ＭＳ Ｐゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnCopy.ForeColor = System.Drawing.Color.White;
-			this.BtnCopy.Location = new System.Drawing.Point(86, 148);
+			this.BtnCopy.Location = new System.Drawing.Point(75, 5);
 			this.BtnCopy.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnCopy.Name = "BtnCopy";
-			this.BtnCopy.Size = new System.Drawing.Size(65, 22);
+			this.BtnCopy.Size = new System.Drawing.Size(60, 24);
 			this.BtnCopy.TabIndex = 0;
 			this.BtnCopy.TabStop = false;
 			this.BtnCopy.Text = "コピー";
+			this.ToolTip1.SetToolTip(this.BtnCopy, "クリップボードにコピー(以前のクリップボードは破棄)");
 			this.BtnCopy.UseVisualStyleBackColor = false;
 			this.BtnCopy.Click += new System.EventHandler(this.BtnCopy_Click);
+			// 
+			// ToolTip1
+			// 
+			this.ToolTip1.AutomaticDelay = 1000;
 			// 
 			// CmsTextSelect
 			// 
@@ -357,56 +529,75 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.DimGray;
-			this.ClientSize = new System.Drawing.Size(304, 181);
-			this.Controls.Add(this.TbResult);
-			this.Controls.Add(this.BtnSaveFile);
-			this.Controls.Add(this.CbTextCode);
-			this.Controls.Add(this.BtnCopy);
-			this.Controls.Add(this.BtnReload);
-			this.Controls.Add(this.GrpRB);
-			this.ForeColor = System.Drawing.Color.Black;
-			this.MinimumSize = new System.Drawing.Size(320, 220);
+			this.ClientSize = new System.Drawing.Size(304, 131);
+			this.Controls.Add(this.splitContainer1);
+			this.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+			this.ForeColor = System.Drawing.Color.White;
+			this.MinimumSize = new System.Drawing.Size(320, 170);
 			this.Name = "Form1";
 			this.ShowIcon = false;
-			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
-			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-			this.Text = "ダミータイトル";
+			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "Form1";
 			this.TopMost = true;
 			this.Load += new System.EventHandler(this.Form1_Load);
+			this.Resize += new System.EventHandler(this.Form1_Resize);
+			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.PerformLayout();
+			this.splitContainer1.Panel2.ResumeLayout(false);
+			this.splitContainer1.Panel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+			this.splitContainer1.ResumeLayout(false);
 			this.CmsResult.ResumeLayout(false);
-			this.GrpRB.ResumeLayout(false);
-			this.GrpRB.PerformLayout();
+			this.MstResult.ResumeLayout(false);
+			this.MstResult.PerformLayout();
+			this.CmsSearch.ResumeLayout(false);
 			this.CmsTextSelect.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
 
-		private System.Windows.Forms.TextBox TbResult;
-		private System.Windows.Forms.Button BtnSaveFile;
-		private System.Windows.Forms.ComboBox CbTextCode;
-		private System.Windows.Forms.ContextMenuStrip CmsResult;
-		private System.Windows.Forms.ContextMenuStrip CmsNull;
+		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.MenuStrip MstResult;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex01;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex02;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult01;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult02;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult03;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult04;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult05;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex03;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex04;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex05;
+		private System.Windows.Forms.ComboBox CmbSearch;
+		private System.Windows.Forms.ContextMenuStrip CmsSearch;
+		private System.Windows.Forms.ToolStripMenuItem CmsSearch_全クリア;
+		private System.Windows.Forms.ToolStripMenuItem CmsSearch_貼り付け;
 		private System.Windows.Forms.ToolTip ToolTip1;
+		private System.Windows.Forms.Label BtnSearch;
+		private System.Windows.Forms.Button BtnSearchClear;
 		private System.Windows.Forms.Button BtnReload;
-		private System.Windows.Forms.GroupBox GrpRB;
-		private System.Windows.Forms.RadioButton RB03;
-		private System.Windows.Forms.RadioButton RB01;
-		private System.Windows.Forms.RadioButton RB02;
-		private System.Windows.Forms.RadioButton RB05;
-		private System.Windows.Forms.RadioButton RB04;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_貼り付け;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_全クリア;
+		private System.Windows.Forms.ContextMenuStrip CmsNull;
 		private System.Windows.Forms.Button BtnCopy;
+		private System.Windows.Forms.ContextMenuStrip CmsResult;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_全クリア;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_貼り付け;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存_SJIS;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存_UTF8N;
 		private System.Windows.Forms.ContextMenuStrip CmsTextSelect;
+		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_Cancel;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_コピー;
 		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_切り取り;
-		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_貼り付け;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_Cancel;
+		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_貼り付け;
+		private System.Windows.Forms.TextBox TbResult;
+		private System.Windows.Forms.ToolStripMenuItem TsmResultHelp;
 	}
 }
 
