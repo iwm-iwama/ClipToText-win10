@@ -1,30 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-///using System.Diagnostics;
+//using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20211009";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20211210";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r??\n";
 
 		// [0]             [1]          [2]          [3]          [4]          [5]          [6]
-		// TsmResultIndex, TsmResult01, TsmResult02, TsmResult03, TsmResult04, TsmResult05, TsmResultHelp
+		// TsmResultIndex, TsmResult01, TsmResult02, TsmResult03, TsmResult04, TsmResult05, TsmResult06
 		private const int GblMstItemsSize = 7;
 
-		private int GblAryIndex = 1;
-		private readonly string[] GblAryText = { "", "", "", "", "", "", "" };
+		private int GblResult_AryIndex = 1;
+		private readonly string[] GblResult_AryText = { "", "", "", "", "", "", "" };
+
+		private int GblResult_CursorPos = 0;
 
 		private object OBJ = null;
 
@@ -42,6 +43,8 @@ namespace iwm_ClipToText
 		public Form1()
 		{
 			InitializeComponent();
+
+			RtbResult.DragEnter += new DragEventHandler(RtbResult_DragEnter);
 		}
 
 		private void Form1_Load(object sender, EventArgs e)
@@ -62,6 +65,8 @@ namespace iwm_ClipToText
 				}
 				Clipboard.SetFileDropList(files);
 			}
+
+			SplitContainerResult.Visible = false;
 
 			BtnReload_Click(sender, e);
 			SubTsmResultSelect(1);
@@ -107,72 +112,204 @@ namespace iwm_ClipToText
 			Refresh();
 		}
 
-		private void TbResult_TextChanged(object sender, EventArgs e)
+		private void RtbResult_KeyUp(object sender, KeyEventArgs e)
 		{
-			// 検索結果は反映しない
-			if (CmbSearch.Text.Length == 0)
+			// RichTextBox で以下の動作は不安定
+			//   [Ctrl]+[↑]
+			//   [Ctrl]+[↓]
+
+			// [Ctrl]+[PgUp]
+			if (e.KeyData == (Keys.Control | Keys.PageUp))
 			{
-				GblAryText[GblAryIndex] = TbResult.Text;
+				RtbResult.Select(0, 0);
+				RtbResult.ScrollToCaret();
+				return;
+			}
+
+			// [Ctrl]+[PgDn]
+			if (e.KeyData == (Keys.Control | Keys.PageDown))
+			{
+				RtbResult.Select(RtbResult.TextLength, 0);
+				RtbResult.ScrollToCaret();
+				return;
+			}
+
+			switch (e.KeyCode)
+			{
+				case (Keys.Escape):
+					CmbSearch.Focus();
+					break;
+
+				case (Keys.F3):
+					BtnSearchNext_Click(sender, null);
+					break;
+
+				default:
+					GblResult_CursorPos = RtbResult.SelectionStart;
+					break;
 			}
 		}
 
-		private void TbResult_DragEnter(object sender, DragEventArgs e)
+		private void RtbResult_TextChanged(object sender, EventArgs e)
 		{
-			TbResult.Focus();
-			e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.All : DragDropEffects.None;
+			GblResult_AryText[GblResult_AryIndex] = RtbResult.Text;
 		}
 
-		private void TbResult_DragDrop(object sender, DragEventArgs e)
+		private void RtbResult_DragEnter(object sender, DragEventArgs e)
 		{
-			foreach (string _s1 in (string[])e.Data.GetData(DataFormats.FileDrop))
-			{
-				(_, string _s2) = RtnTextFileRead(_s1, false, "");
-				SubSendMessage(TbResult.Handle, Regex.Replace(_s2, RgxNL, NL));
-			}
-			BtnCopy_Click(sender, null);
+			// ドロップ不可
+			e.Effect = DragDropEffects.None;
+
+			SplitContainerResult.Visible = true;
 		}
 
-		private void TbResult_MouseUp(object sender, MouseEventArgs e)
+		private void RtbResult_MouseUp(object sender, MouseEventArgs e)
 		{
-			CmsTextSelect_Open(e, TbResult);
+			GblResult_CursorPos = RtbResult.SelectionStart;
+
+			CmsTextSelect_Open(e, RtbResult);
 		}
 
-		private void CmsResult_全クリア_Click(object sender, EventArgs e)
+		private void CmsResult_クリア_Click(object sender, EventArgs e)
 		{
-			TbResult.Text = "";
+			RtbResult.Text = "";
 		}
 
 		private void CmsResult_貼り付け_Click(object sender, EventArgs e)
 		{
-			SubSendMessage(TbResult.Handle, Regex.Replace(RtnClipboard(), RgxNL, NL));
+			SubSendMessage(RtbResult.Handle, Regex.Replace(RtnClipboard(), RgxNL, NL));
+		}
+
+		private void CmsResult_名前を付けて保存_SJIS_Click(object sender, EventArgs e)
+		{
+			_ = RtnTextFileWrite(RtbResult.Text, 932, DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt", true, TEXT_FILTER);
+		}
+
+		private void CmsResult_名前を付けて保存_UTF8N_Click(object sender, EventArgs e)
+		{
+			_ = RtnTextFileWrite(RtbResult.Text, 65001, DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt", true, TEXT_FILTER);
+		}
+
+		private void CmsResult_最上部へ_Click(object sender, EventArgs e)
+		{
+			RtbResult.Select(0, 0);
+			RtbResult.ScrollToCaret();
+		}
+
+		private void CmsResult_最下部へ_Click(object sender, EventArgs e)
+		{
+			RtbResult.Select(RtbResult.TextLength, 0);
+			RtbResult.ScrollToCaret();
+		}
+
+		private void SplitContainerResult_Panel1_Click(object sender, EventArgs e)
+		{
+			// 誤操作で表示されたままになったとき使用
+			SplitContainerResult.Visible = false;
+		}
+
+		private void SplitContainerResult_Panel1_DragLeave(object sender, EventArgs e)
+		{
+			SplitContainerResult.Visible = false;
+		}
+
+		private void SplitContainerResult_Panel2_Click(object sender, EventArgs e)
+		{
+			// 誤操作で表示されたままになったとき使用
+			SplitContainerResult.Visible = false;
+		}
+
+		private void SplitContainerResult_Panel2_DragLeave(object sender, EventArgs e)
+		{
+			SplitContainerResult.Visible = false;
+		}
+
+		private void BtnPasteFilename_Click(object sender, EventArgs e)
+		{
+			// 誤操作で表示されたままになったとき使用
+			SplitContainerResult.Visible = false;
+		}
+
+		private void BtnPasteFilename_DragEnter(object sender, DragEventArgs e)
+		{
+			e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
+		}
+
+		private void BtnPasteFilename_DragDrop(object sender, DragEventArgs e)
+		{
+			List<string> l1 = new List<string>();
+
+			foreach (string _s1 in (string[])e.Data.GetData(DataFormats.FileDrop))
+			{
+				l1.Add(_s1);
+			}
+			l1.Sort();
+			SubSendMessage(RtbResult.Handle, RtnShortPath(l1));
+
+			RtbResult.Select(0, 0);
+			RtbResult.ScrollToCaret();
+
+			SplitContainerResult.Visible = false;
+		}
+
+		private void BtnPasteTextfile_Click(object sender, EventArgs e)
+		{
+			// 誤操作で表示されたままになったとき使用
+			SplitContainerResult.Visible = false;
+		}
+
+		private void BtnPasteTextfile_DragEnter(object sender, DragEventArgs e)
+		{
+			e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
+		}
+
+		private void BtnPasteTextfile_DragDrop(object sender, DragEventArgs e)
+		{
+			StringBuilder sb = new StringBuilder();
+			string s1 = "";
+
+			foreach (string _s1 in (string[])e.Data.GetData(DataFormats.FileDrop))
+			{
+				(string _s2, string _s3) = RtnTextFileRead(_s1, false, "");
+				if (_s2.Length > 0)
+				{
+					_ = sb.Append(_s3);
+				}
+				else
+				{
+					if (File.Exists(_s1))
+					{
+						s1 += "・" + Path.GetFileName(_s1) + NL;
+					}
+				}
+			}
+
+			SubSendMessage(RtbResult.Handle, Regex.Replace(sb.ToString(), RgxNL, NL));
+
+			RtbResult.Select(0, 0);
+			RtbResult.ScrollToCaret();
+
+			SplitContainerResult.Visible = false;
+
+			if (s1.Length > 0)
+			{
+				_ = MessageBox.Show(
+					"[Err] テキストファイルではありません。" + NL + NL + s1,
+					ProgramID
+				);
+			}
 		}
 
 		private void TsmResultIndex_Click(object sender, EventArgs e)
 		{
 			// インデクスを一括作成
 			ToolStripMenuItem obj1 = (ToolStripMenuItem)MstResult.Items[0];
-
-			for (int _i1 = 1; _i1 <= 5; _i1++)
+			for (int _i1 = 1; _i1 < GblMstItemsSize; _i1++)
 			{
 				ToolStripItem _obj1 = obj1.DropDownItems[_i1 - 1];
-				_obj1.Text = RtnIndexB(GblAryText[_i1], 100);
+				_obj1.Text = RtnIndexB(GblResult_AryText[_i1], 100);
 				_obj1.BackColor = _obj1.Text.Length > 0 ? Color.White : Color.Gainsboro;
 			}
-		}
-
-		private string RtnShortPath(List<string> lStr)
-		{
-			StringBuilder sb = new StringBuilder();
-			foreach (string _s1 in lStr)
-			{
-				_ = sb.Append(Path.GetFileName(_s1));
-				if (Directory.Exists(_s1))
-				{
-					_ = sb.Append("\\");
-				}
-				_ = sb.Append(NL);
-			}
-			return "[" + Path.GetDirectoryName(lStr[0]).TrimEnd('\\') + "\\]" + NL + sb.ToString();
 		}
 
 		private void TsmResultIndex01_Click(object sender, EventArgs e)
@@ -200,6 +337,11 @@ namespace iwm_ClipToText
 			SubTsmResultSelect(5);
 		}
 
+		private void TsmResultIndex06_Click(object sender, EventArgs e)
+		{
+			SubTsmResultSelect(6);
+		}
+
 		private void TsmResult01_Click(object sender, EventArgs e)
 		{
 			SubTsmResultSelect(1);
@@ -225,20 +367,25 @@ namespace iwm_ClipToText
 			SubTsmResultSelect(5);
 		}
 
+		private void TsmResult06_Click(object sender, EventArgs e)
+		{
+			SubTsmResultSelect(6);
+		}
+
 		private void SubTsmResultSelect(int iTsmIndex)
 		{
 
 			for (int _i1 = 1; _i1 < GblMstItemsSize; _i1++)
 			{
-				string _s1 = GblAryText[_i1].ToString();
+				string _s1 = GblResult_AryText[_i1].ToString();
 
 				if (_i1 == iTsmIndex)
 				{
 					MstResult.Items[_i1].BackColor = Color.Crimson;
 					MstResult.Items[_i1].Select();
 
-					GblAryIndex = _i1;
-					TbResult.Text = GblAryText[GblAryIndex].ToString();
+					GblResult_AryIndex = _i1;
+					RtbResult.Text = GblResult_AryText[GblResult_AryIndex].ToString();
 
 					// 再検索
 					BtnSearch_Click(null, null);
@@ -246,37 +393,15 @@ namespace iwm_ClipToText
 				else
 				{
 					MstResult.Items[_i1].BackColor = _s1.Length > 0 ? Color.Maroon : Color.DimGray;
-					MstResult.Items[6].BackColor = Color.Azure;
 				}
 			}
 		}
 
-		private void TsmResultHelp_Click(object sender, EventArgs e)
-		{
-			SubTsmResultSelect(6);
-
-			TbResult.Text =
-				"------------------" + NL +
-				"> [再読込]ボタン <" + NL +
-				"------------------" + NL +
-				"コピーされた" + NL +
-				"  ・テキストデータ" + NL +
-				"  ・フォルダ／ファイル名" + NL +
-				"を読み込みます（上書き）。" + NL +
-				NL +
-				"------------------------------" + NL +
-				"> ドラッグ・アンド・ドロップ <" + NL +
-				"------------------------------" + NL +
-				"ドラッグされたファイル(複数可)からテキストデータを抽出し、" + NL +
-				"カーソル位置に挿入します。" + NL +
-				"文字コードの自動判別（UTF-8／Shift_JIS）を試みますが、" + NL +
-				"判別不能の場合、Shift_JIS で読み込みます。" + NL
-			;
-		}
-
 		private void BtnReload_Click(object sender, EventArgs e)
 		{
-			TbResult.Text = RtnClipboard();
+			RtbResult.Text = RtnClipboard();
+			RtbResult.Select(0, 0);
+			RtbResult.ScrollToCaret();
 		}
 
 		private string RtnClipboard()
@@ -295,7 +420,6 @@ namespace iwm_ClipToText
 					l1.Add(_s1);
 				}
 				l1.Sort();
-
 				rtn = RtnShortPath(l1);
 			}
 
@@ -304,9 +428,9 @@ namespace iwm_ClipToText
 
 		private void BtnCopy_Click(object sender, EventArgs e)
 		{
-			if (TbResult.TextLength > 0)
+			if (RtbResult.TextLength > 0)
 			{
-				Clipboard.SetText(TbResult.Text);
+				Clipboard.SetText(RtbResult.Text);
 			}
 			else
 			{
@@ -314,32 +438,19 @@ namespace iwm_ClipToText
 			}
 		}
 
-		private void CmsSearch_全クリア_Click(object sender, EventArgs e)
-		{
-			BtnSearchClear_Click(sender, e);
-		}
-
-		private void CmsSearch_貼り付け_Click(object sender, EventArgs e)
-		{
-			int iPos = CmbSearch.SelectionStart;
-			string s1 = Clipboard.GetText();
-			CmbSearch.Text = CmbSearch.Text.Insert(iPos, s1);
-			CmbSearch.SelectionStart = iPos + s1.Length;
-		}
-
-		private void CmsResult_名前を付けて保存_SJIS_Click(object sender, EventArgs e)
-		{
-			_ = RtnTextFileWrite(TbResult.Text, 932, DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt", true, TEXT_FILTER);
-		}
-
-		private void CmsResult_名前を付けて保存_UTF8N_Click(object sender, EventArgs e)
-		{
-			_ = RtnTextFileWrite(TbResult.Text, 65001, DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt", true, TEXT_FILTER);
-		}
-
 		private void CmbSearch_MouseEnter(object sender, EventArgs e)
 		{
 			_ = CmbSearch.Focus();
+		}
+
+		private void CmbSearch_Enter(object sender, EventArgs e)
+		{
+			CmbSearch.BackColor = Color.LightYellow;
+		}
+
+		private void CmbSearch_Leave(object sender, EventArgs e)
+		{
+			CmbSearch.BackColor = Color.Azure;
 		}
 
 		private void CmbSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -353,14 +464,97 @@ namespace iwm_ClipToText
 
 		private void CmbSearch_KeyUp(object sender, KeyEventArgs e)
 		{
+			// [Ctrl]+[Space]
+			if (e.KeyData == (Keys.Control | Keys.Space))
+			{
+				CmbSearch.Text = "";
+				return;
+			}
+
+			// [Ctrl]+[Backspace]
+			if (e.KeyData == (Keys.Control | Keys.Back))
+			{
+				CmbSearch.Text = CmbSearch.Text.Substring(CmbSearch.SelectionStart);
+				return;
+			}
+
+			// [Ctrl]+[Delete]
+			if (e.KeyData == (Keys.Control | Keys.Delete))
+			{
+				CmbSearch.Text = CmbSearch.Text.Substring(0, CmbSearch.SelectionStart);
+				return;
+			}
+
 			switch (e.KeyCode)
 			{
+				case (Keys.F1):
+					GblResult_AryIndex = (GblResult_AryIndex > 1 ? GblResult_AryIndex : GblMstItemsSize) - 1;
+					SubTsmResultSelect(GblResult_AryIndex);
+					break;
+
+				case (Keys.F2):
+					GblResult_AryIndex = GblResult_AryIndex + 1 >= GblMstItemsSize ? 1 : GblResult_AryIndex + 1;
+					SubTsmResultSelect(GblResult_AryIndex);
+					break;
+
+				case (Keys.F3):
+					BtnSearchNext_Click(sender, null);
+					break;
+
+				// Keys.F4 => DropDown
+
+				case (Keys.F5):
+					BtnSearchClear_Click(sender, null);
+					break;
+
 				case (Keys.Enter):
 					int iPos = CmbSearch.SelectionStart;
 					BtnSearch_Click(sender, null);
-					CmbSearch.SelectionStart = iPos;
+					CmbSearch.Select(iPos, 0);
+					break;
+
+				case (Keys.PageUp):
+				case (Keys.Up):
+					CmbSearch.SelectionStart = 0;
+					break;
+
+				case (Keys.PageDown):
+				case (Keys.Down):
+					CmbSearch.SelectionStart = CmbSearch.Text.Length;
 					break;
 			}
+		}
+
+		private void CmsSearch_クリア_Click(object sender, EventArgs e)
+		{
+			BtnSearchClear_Click(sender, e);
+		}
+
+		private void CmsSearch_貼り付け_Click(object sender, EventArgs e)
+		{
+			int iPos = CmbSearch.SelectionStart;
+			string s1 = Clipboard.GetText();
+			CmbSearch.Text = CmbSearch.Text.Insert(iPos, s1);
+			CmbSearch.SelectionStart = iPos + s1.Length;
+		}
+
+		private void CmsSearch_ショートカットキーの説明_Click(object sender, EventArgs e)
+		{
+			_ = MessageBox.Show(
+				"[Enter] 検索開始" + NL +
+				"[F3] 次の検索結果" + NL +
+				"[Esc] 検索にフォーカス移動" + NL +
+				"[F4] 検索履歴" + NL +
+				"[F5] 検索中止" + NL +
+				NL +
+				"[Ctrl]+[Space] クリア" + NL +
+				"[Ctrl]+[Backspace] カーソルより前方をクリア" + NL +
+				"[Ctrl]+[Delete] カーソルより後方をクリア" + NL +
+				NL +
+				"[F1] 前のタブに移動" + NL +
+				"[F2] 次のタブに移動",
+				ProgramID
+			);
 		}
 
 		private void BtnSearch_Click(object sender, EventArgs e)
@@ -371,9 +565,7 @@ namespace iwm_ClipToText
 				return;
 			}
 
-			int iPos = CmbSearch.SelectionStart;
-
-			// 重複排除
+			// 検索履歴から重複排除
 			_ = CmbSearch.Items.Add(CmbSearch.Text);
 			List<string> l1 = new List<string>();
 			foreach (string _s1 in CmbSearch.Items)
@@ -382,6 +574,7 @@ namespace iwm_ClipToText
 			}
 			l1.Sort();
 			CmbSearch.Items.Clear();
+
 			string sOld = "";
 			foreach (string _s1 in l1)
 			{
@@ -393,48 +586,74 @@ namespace iwm_ClipToText
 			}
 			l1.Clear();
 
-			int iCnt = 0;
+			int iLineBgnPos = 0;
 
-			// 検索
-			StringBuilder sb = new StringBuilder();
-			foreach (string _s1 in Regex.Split(GblAryText[GblAryIndex].ToString(), NL))
+			// 画面を初期化
+			RtbResult.Text = GblResult_AryText[GblResult_AryIndex].ToString();
+
+			// 行毎に検索!!
+			// 検索位置を着色
+			foreach (string _s1 in RtbResult.Text.Split('\n'))
 			{
-				try
+				foreach (Match _m1 in Regex.Matches(_s1, CmbSearch.Text, RegexOptions.IgnoreCase))
 				{
-					if (Regex.IsMatch(_s1, CmbSearch.Text, RegexOptions.IgnoreCase))
-					{
-						_ = sb.Append(_s1);
-						_ = sb.Append(NL);
-						++iCnt;
-					}
+					RtbResult.Select(iLineBgnPos + _m1.Index, _m1.Value.Length);
+					RtbResult.SelectionColor = Color.White;
+					RtbResult.SelectionBackColor = Color.Red;
 				}
-				catch
-				{
-					Color foreColorCur = CmbSearch.ForeColor;
-					Color backColorCur = CmbSearch.BackColor;
-
-					CmbSearch.ForeColor = Color.White;
-					CmbSearch.BackColor = Color.Red;
-
-					Refresh();
-					Thread.Sleep(500);
-
-					CmbSearch.ForeColor = foreColorCur;
-					CmbSearch.BackColor = backColorCur;
-
-					break;
-				}
+				iLineBgnPos += _s1.Length + 1;
 			}
-			TbResult.Text = sb.ToString();
-			Text = iCnt.ToString() + "行 検索";
 
-			CmbSearch.SelectionStart = iPos;
+			// 最初の検索位置へスクロール
+			RtbResult.SelectionStart = Regex.Match(RtbResult.Text, CmbSearch.Text, RegexOptions.IgnoreCase).Index;
+			RtbResult.ScrollToCaret();
+
+			_ = CmbSearch.Focus();
+		}
+
+		private void BtnSearchNext_Click(object sender, EventArgs e)
+		{
+			if (CmbSearch.Text.Length == 0)
+			{
+				return;
+			}
+
+			_ = RtbResult.Focus();
+			CmbSearch.SelectionStart = 0;
+
+			// 行毎に検索!!
+			// 検索位置にカーソル移動
+			while (Regex.IsMatch(RtbResult.Text, CmbSearch.Text, RegexOptions.IgnoreCase))
+			{
+				int iLineBgnPos = 0;
+
+				foreach (string _s1 in RtbResult.Text.Split('\n'))
+				{
+					// 無駄なループを減らすため、こまめに GblResult_CursorPos の位置をチェック
+					if (iLineBgnPos + _s1.Length > GblResult_CursorPos)
+					{
+						foreach (Match _m1 in Regex.Matches(_s1, CmbSearch.Text, RegexOptions.IgnoreCase))
+						{
+							if (iLineBgnPos + _m1.Index >= GblResult_CursorPos)
+							{
+								_ = RtbResult.Focus();
+								RtbResult.Select(iLineBgnPos + _m1.Index, _m1.Value.Length);
+								GblResult_CursorPos = iLineBgnPos + _m1.Index + _m1.Value.Length;
+								return;
+							}
+						}
+					}
+					iLineBgnPos += _s1.Length + 1;
+				}
+
+				GblResult_CursorPos = 0;
+			}
 		}
 
 		private void BtnSearchClear_Click(object sender, EventArgs e)
 		{
 			CmbSearch.Text = "";
-			TbResult.Text = GblAryText[GblAryIndex].ToString();
+			RtbResult.Text = GblResult_AryText[GblResult_AryIndex].ToString();
 			Text = ProgramID;
 		}
 
@@ -502,6 +721,24 @@ namespace iwm_ClipToText
 					rtb.Paste();
 					break;
 			}
+		}
+
+		//--------------------------------------------------------------------------------
+		// Dir/File ショートリストを作成
+		//--------------------------------------------------------------------------------
+		private string RtnShortPath(List<string> lStr)
+		{
+			StringBuilder sb = new StringBuilder();
+			foreach (string _s1 in lStr)
+			{
+				_ = sb.Append(Path.GetFileName(_s1));
+				if (Directory.Exists(_s1))
+				{
+					_ = sb.Append("\\");
+				}
+				_ = sb.Append(NL);
+			}
+			return "[" + Path.GetDirectoryName(lStr[0]).TrimEnd('\\') + "\\]" + NL + sb.ToString();
 		}
 
 		//--------------------------------------------------------------------------------
