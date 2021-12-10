@@ -350,7 +350,7 @@ namespace iwm_ClipToText
 			this.BtnPasteTextfile.Location = new System.Drawing.Point(15, 10);
 			this.BtnPasteTextfile.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnPasteTextfile.Name = "BtnPasteTextfile";
-			this.BtnPasteTextfile.Size = new System.Drawing.Size(120, 30);
+			this.BtnPasteTextfile.Size = new System.Drawing.Size(122, 30);
 			this.BtnPasteTextfile.TabIndex = 0;
 			this.BtnPasteTextfile.TabStop = false;
 			this.BtnPasteTextfile.Text = "テキスト";
@@ -478,6 +478,7 @@ namespace iwm_ClipToText
 			this.BtnSearch.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearch.ForeColor = System.Drawing.Color.Black;
 			this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
+			this.BtnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.BtnSearch.Location = new System.Drawing.Point(241, 5);
 			this.BtnSearch.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnSearch.Name = "BtnSearch";
