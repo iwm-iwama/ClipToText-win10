@@ -350,7 +350,7 @@ namespace iwm_ClipToText
 			this.BtnPasteTextfile.Location = new System.Drawing.Point(15, 10);
 			this.BtnPasteTextfile.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnPasteTextfile.Name = "BtnPasteTextfile";
-			this.BtnPasteTextfile.Size = new System.Drawing.Size(120, 30);
+			this.BtnPasteTextfile.Size = new System.Drawing.Size(122, 30);
 			this.BtnPasteTextfile.TabIndex = 0;
 			this.BtnPasteTextfile.TabStop = false;
 			this.BtnPasteTextfile.Text = "テキスト";
@@ -513,7 +513,6 @@ namespace iwm_ClipToText
 			this.CmbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbSearch_KeyPress);
 			this.CmbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CmbSearch_KeyUp);
 			this.CmbSearch.Leave += new System.EventHandler(this.CmbSearch_Leave);
-			this.CmbSearch.MouseEnter += new System.EventHandler(this.CmbSearch_MouseEnter);
 			// 
 			// CmsSearch
 			// 

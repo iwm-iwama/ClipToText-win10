@@ -438,11 +438,6 @@ namespace iwm_ClipToText
 			}
 		}
 
-		private void CmbSearch_MouseEnter(object sender, EventArgs e)
-		{
-			_ = CmbSearch.Focus();
-		}
-
 		private void CmbSearch_Enter(object sender, EventArgs e)
 		{
 			CmbSearch.BackColor = Color.LightYellow;
