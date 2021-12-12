@@ -305,7 +305,6 @@ namespace iwm_ClipToText
 			this.SplitContainerResult.Panel2.DragLeave += new System.EventHandler(this.SplitContainerResult_Panel2_DragLeave);
 			this.SplitContainerResult.Size = new System.Drawing.Size(302, 50);
 			this.SplitContainerResult.SplitterDistance = 150;
-			this.SplitContainerResult.SplitterWidth = 2;
 			this.SplitContainerResult.TabIndex = 0;
 			this.SplitContainerResult.TabStop = false;
 			// 
@@ -350,7 +349,7 @@ namespace iwm_ClipToText
 			this.BtnPasteTextfile.Location = new System.Drawing.Point(15, 10);
 			this.BtnPasteTextfile.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnPasteTextfile.Name = "BtnPasteTextfile";
-			this.BtnPasteTextfile.Size = new System.Drawing.Size(122, 30);
+			this.BtnPasteTextfile.Size = new System.Drawing.Size(120, 30);
 			this.BtnPasteTextfile.TabIndex = 0;
 			this.BtnPasteTextfile.TabStop = false;
 			this.BtnPasteTextfile.Text = "テキスト";
@@ -397,6 +396,7 @@ namespace iwm_ClipToText
             this.CmsResult_最下部へ});
 			this.CmsResult.Name = "CmsTbSaveFileName";
 			this.CmsResult.Size = new System.Drawing.Size(162, 126);
+			this.CmsResult.Opened += new System.EventHandler(this.CmsResult_Opened);
 			// 
 			// CmsResult_クリア
 			// 
@@ -472,8 +472,8 @@ namespace iwm_ClipToText
 			this.BtnSearch.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearch.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearch.FlatAppearance.BorderSize = 0;
-			this.BtnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this.BtnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+			this.BtnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+			this.BtnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnSearch.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearch.ForeColor = System.Drawing.Color.Black;
@@ -502,11 +502,11 @@ namespace iwm_ClipToText
 			this.CmbSearch.FormattingEnabled = true;
 			this.CmbSearch.IntegralHeight = false;
 			this.CmbSearch.ItemHeight = 12;
-			this.CmbSearch.Location = new System.Drawing.Point(151, 5);
+			this.CmbSearch.Location = new System.Drawing.Point(156, 5);
 			this.CmbSearch.Margin = new System.Windows.Forms.Padding(0);
 			this.CmbSearch.MaxDropDownItems = 1;
 			this.CmbSearch.Name = "CmbSearch";
-			this.CmbSearch.Size = new System.Drawing.Size(90, 20);
+			this.CmbSearch.Size = new System.Drawing.Size(85, 20);
 			this.CmbSearch.TabIndex = 1;
 			this.ToolTip1.SetToolTip(this.CmbSearch, "正規表現による検索");
 			this.CmbSearch.Enter += new System.EventHandler(this.CmbSearch_Enter);
@@ -524,6 +524,7 @@ namespace iwm_ClipToText
             this.CmsSearch_ショートカットキーの説明});
 			this.CmsSearch.Name = "CmsTbSaveFileName";
 			this.CmsSearch.Size = new System.Drawing.Size(184, 76);
+			this.CmsSearch.Opened += new System.EventHandler(this.CmsSearch_Opened);
 			// 
 			// CmsSearch_クリア
 			// 
@@ -560,8 +561,8 @@ namespace iwm_ClipToText
 			this.BtnSearchNext.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchNext.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchNext.FlatAppearance.BorderSize = 0;
-			this.BtnSearchNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this.BtnSearchNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+			this.BtnSearchNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+			this.BtnSearchNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnSearchNext.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearchNext.ForeColor = System.Drawing.Color.Black;
@@ -582,8 +583,8 @@ namespace iwm_ClipToText
 			this.BtnSearchClear.BackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchClear.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchClear.FlatAppearance.BorderSize = 0;
-			this.BtnSearchClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Azure;
-			this.BtnSearchClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+			this.BtnSearchClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
+			this.BtnSearchClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnSearchClear.Font = new System.Drawing.Font("游ゴシック", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearchClear.ForeColor = System.Drawing.Color.Black;

@@ -170,6 +170,11 @@ namespace iwm_ClipToText
 			CmsTextSelect_Open(e, RtbResult);
 		}
 
+		private void CmsResult_Opened(object sender, EventArgs e)
+		{
+			_ = RtbResult.Focus();
+		}
+
 		private void CmsResult_クリア_Click(object sender, EventArgs e)
 		{
 			RtbResult.Text = "";
@@ -518,6 +523,11 @@ namespace iwm_ClipToText
 					CmbSearch.SelectionStart = CmbSearch.Text.Length;
 					break;
 			}
+		}
+
+		private void CmsSearch_Opened(object sender, EventArgs e)
+		{
+			_ = CmbSearch.Focus();
 		}
 
 		private void CmsSearch_クリア_Click(object sender, EventArgs e)
