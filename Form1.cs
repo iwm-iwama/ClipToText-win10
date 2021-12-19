@@ -468,6 +468,8 @@ namespace iwm_ClipToText
 			if (e.KeyData == (Keys.Control | Keys.Space))
 			{
 				CmbSearch.Text = "";
+				// 文字位置を再設定しないと SendMessage で不具合
+				CmbSearch.SelectionStart = 0;
 				return;
 			}
 
@@ -475,6 +477,8 @@ namespace iwm_ClipToText
 			if (e.KeyData == (Keys.Control | Keys.Back))
 			{
 				CmbSearch.Text = CmbSearch.Text.Substring(CmbSearch.SelectionStart);
+				// 文字位置を再設定しないと SendMessage で不具合
+				CmbSearch.SelectionStart = 0;
 				return;
 			}
 
@@ -482,6 +486,8 @@ namespace iwm_ClipToText
 			if (e.KeyData == (Keys.Control | Keys.Delete))
 			{
 				CmbSearch.Text = CmbSearch.Text.Substring(0, CmbSearch.SelectionStart);
+				// 文字位置を再設定しないと SendMessage で不具合
+				CmbSearch.SelectionStart = CmsSearch.Text.Length;
 				return;
 			}
 
