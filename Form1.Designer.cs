@@ -303,8 +303,9 @@ namespace iwm_ClipToText
 			this.SplitContainerResult.Panel2.ForeColor = System.Drawing.Color.White;
 			this.SplitContainerResult.Panel2.Click += new System.EventHandler(this.SplitContainerResult_Panel2_Click);
 			this.SplitContainerResult.Panel2.DragLeave += new System.EventHandler(this.SplitContainerResult_Panel2_DragLeave);
-			this.SplitContainerResult.Size = new System.Drawing.Size(302, 50);
+			this.SplitContainerResult.Size = new System.Drawing.Size(302, 47);
 			this.SplitContainerResult.SplitterDistance = 150;
+			this.SplitContainerResult.SplitterWidth = 2;
 			this.SplitContainerResult.TabIndex = 0;
 			this.SplitContainerResult.TabStop = false;
 			// 
@@ -321,7 +322,7 @@ namespace iwm_ClipToText
 			this.BtnPasteFilename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnPasteFilename.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnPasteFilename.ForeColor = System.Drawing.Color.White;
-			this.BtnPasteFilename.Location = new System.Drawing.Point(15, 10);
+			this.BtnPasteFilename.Location = new System.Drawing.Point(15, 8);
 			this.BtnPasteFilename.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnPasteFilename.Name = "BtnPasteFilename";
 			this.BtnPasteFilename.Size = new System.Drawing.Size(120, 30);
@@ -346,7 +347,7 @@ namespace iwm_ClipToText
 			this.BtnPasteTextfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnPasteTextfile.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnPasteTextfile.ForeColor = System.Drawing.Color.White;
-			this.BtnPasteTextfile.Location = new System.Drawing.Point(15, 10);
+			this.BtnPasteTextfile.Location = new System.Drawing.Point(15, 8);
 			this.BtnPasteTextfile.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnPasteTextfile.Name = "BtnPasteTextfile";
 			this.BtnPasteTextfile.Size = new System.Drawing.Size(120, 30);

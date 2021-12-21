@@ -55,11 +55,11 @@ namespace iwm_ClipToText
 			SubFormStartPosition();
 
 			// コマンドライン引数からファイル名を取得
-			if (Let.args.Length > 0)
+			if (ARGS.Length > 0)
 			{
-				Array.Sort(Let.args);
+				Array.Sort(ARGS);
 				StringCollection files = new StringCollection();
-				foreach (string _s1 in Let.args)
+				foreach (string _s1 in ARGS)
 				{
 					_ = files.Add(_s1);
 				}
@@ -928,7 +928,7 @@ namespace iwm_ClipToText
 			}
 
 			string sTmp = str.Substring(0, iByte);
-			sTmp = Regex.Replace(sTmp, RgxNL, "␤ ");
+			sTmp = Regex.Replace(sTmp, RgxNL, "␤");
 
 			int i1 = sTmp.Length;
 			int i2 = Encoding.GetEncoding(932).GetByteCount(sTmp);
@@ -939,10 +939,7 @@ namespace iwm_ClipToText
 		//--------------------------------------------------------------------------------
 		// Main()
 		//--------------------------------------------------------------------------------
-		public class Let
-		{
-			public static string[] args;
-		}
+		public static string[] ARGS;
 
 		private static class Program
 		{
@@ -950,12 +947,12 @@ namespace iwm_ClipToText
 			/// アプリケーションのメイン エントリ ポイントです。
 			/// </summary>
 			[STAThread]
-			private static void Main(string[] ARGS)
+			private static void Main(string[] args)
 			{
 				Application.EnableVisualStyles();
 				Application.SetCompatibleTextRenderingDefault(false);
 
-				Let.args = ARGS;
+				ARGS = args;
 
 				Application.Run(new Form1());
 			}
