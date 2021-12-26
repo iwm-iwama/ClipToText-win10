@@ -13,7 +13,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20211210";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20211226";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r??\n";
@@ -28,17 +28,6 @@ namespace iwm_ClipToText
 		private int GblResult_CursorPos = 0;
 
 		private object OBJ = null;
-
-		internal static class NativeMethods
-		{
-			[DllImport("User32.dll", CharSet = CharSet.Unicode)]
-			internal static extern int SendMessage(IntPtr hWnd, int uMsg, int wParam, string lParam);
-		}
-
-		public void SubSendMessage(IntPtr hWnd, string lParam)
-		{
-			_ = NativeMethods.SendMessage(hWnd, 0x00C2, 1, lParam);
-		}
 
 		public Form1()
 		{
@@ -182,7 +171,8 @@ namespace iwm_ClipToText
 
 		private void CmsResult_貼り付け_Click(object sender, EventArgs e)
 		{
-			SubSendMessage(RtbResult.Handle, Regex.Replace(RtnClipboard(), RgxNL, NL));
+			Clipboard.SetText(Regex.Replace(RtnClipboard(), RgxNL, NL));
+			RtbResult.Paste();
 		}
 
 		private void CmsResult_名前を付けて保存_SJIS_Click(object sender, EventArgs e)
@@ -249,7 +239,9 @@ namespace iwm_ClipToText
 				l1.Add(_s1);
 			}
 			l1.Sort();
-			SubSendMessage(RtbResult.Handle, RtnShortPath(l1));
+
+			Clipboard.SetText(RtnShortPath(l1));
+			RtbResult.Paste();
 
 			RtbResult.Select(0, 0);
 			RtbResult.ScrollToCaret();
@@ -289,7 +281,8 @@ namespace iwm_ClipToText
 				}
 			}
 
-			SubSendMessage(RtbResult.Handle, Regex.Replace(sb.ToString(), RgxNL, NL));
+			Clipboard.SetText(Regex.Replace(sb.ToString(), RgxNL, NL));
+			RtbResult.Paste();
 
 			RtbResult.Select(0, 0);
 			RtbResult.ScrollToCaret();
