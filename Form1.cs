@@ -13,7 +13,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20211226";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20220206";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r??\n";
@@ -55,7 +55,7 @@ namespace iwm_ClipToText
 				Clipboard.SetFileDropList(files);
 			}
 
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 
 			BtnReload_Click(sender, e);
 			SubTsmResultSelect(1);
@@ -63,36 +63,7 @@ namespace iwm_ClipToText
 
 		private void SubFormStartPosition()
 		{
-			int WorkingAreaW = Screen.PrimaryScreen.WorkingArea.Width;
-			int WorkingAreaH = Screen.PrimaryScreen.WorkingArea.Height;
-
-			int WorkingAreaX = Screen.PrimaryScreen.WorkingArea.X;
-			int WorkingAreaY = Screen.PrimaryScreen.WorkingArea.Y;
-
-			int MouseX = Cursor.Position.X;
-			int MouseY = Cursor.Position.Y;
-
-			// X = Width
-			if (WorkingAreaW < MouseX + Size.Width)
-			{
-				MouseX -= Size.Width;
-				if (MouseX < 0)
-				{
-					MouseX = WorkingAreaX + 10;
-				}
-			}
-
-			// Y = Height
-			if (WorkingAreaH < MouseY + Size.Height)
-			{
-				MouseY -= Size.Height;
-				if (MouseY < 0)
-				{
-					MouseY = WorkingAreaY + 10;
-				}
-			}
-
-			Location = new Point(MouseX, MouseY);
+			Location = new Point(Cursor.Position.X - (Width / 2), Cursor.Position.Y - (SystemInformation.CaptionHeight / 2));
 		}
 
 		private void Form1_Resize(object sender, EventArgs e)
@@ -149,7 +120,7 @@ namespace iwm_ClipToText
 			// ドロップ不可
 			e.Effect = DragDropEffects.None;
 
-			SplitContainerResult.Visible = true;
+			Scr.Visible = true;
 		}
 
 		private void RtbResult_MouseUp(object sender, MouseEventArgs e)
@@ -197,32 +168,32 @@ namespace iwm_ClipToText
 			RtbResult.ScrollToCaret();
 		}
 
-		private void SplitContainerResult_Panel1_Click(object sender, EventArgs e)
+		private void Scr_Panel1_Click(object sender, EventArgs e)
 		{
 			// 誤操作で表示されたままになったとき使用
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
-		private void SplitContainerResult_Panel1_DragLeave(object sender, EventArgs e)
+		private void Scr_Panel1_DragLeave(object sender, EventArgs e)
 		{
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
-		private void SplitContainerResult_Panel2_Click(object sender, EventArgs e)
+		private void Scr_Panel2_Click(object sender, EventArgs e)
 		{
 			// 誤操作で表示されたままになったとき使用
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
-		private void SplitContainerResult_Panel2_DragLeave(object sender, EventArgs e)
+		private void Scr_Panel2_DragLeave(object sender, EventArgs e)
 		{
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
 		private void BtnPasteFilename_Click(object sender, EventArgs e)
 		{
 			// 誤操作で表示されたままになったとき使用
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
 		private void BtnPasteFilename_DragEnter(object sender, DragEventArgs e)
@@ -246,13 +217,13 @@ namespace iwm_ClipToText
 			RtbResult.Select(0, 0);
 			RtbResult.ScrollToCaret();
 
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
 		private void BtnPasteTextfile_Click(object sender, EventArgs e)
 		{
 			// 誤操作で表示されたままになったとき使用
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 		}
 
 		private void BtnPasteTextfile_DragEnter(object sender, DragEventArgs e)
@@ -287,7 +258,7 @@ namespace iwm_ClipToText
 			RtbResult.Select(0, 0);
 			RtbResult.ScrollToCaret();
 
-			SplitContainerResult.Visible = false;
+			Scr.Visible = false;
 
 			if (s1.Length > 0)
 			{

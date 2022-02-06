@@ -31,8 +31,49 @@ namespace iwm_ClipToText
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+
+			this.BtnCopy = new System.Windows.Forms.Button();
+			this.BtnPasteFilename = new System.Windows.Forms.Button();
+			this.BtnPasteTextfile = new System.Windows.Forms.Button();
+			this.BtnReload = new System.Windows.Forms.Button();
+			this.BtnSearch = new System.Windows.Forms.Button();
+			this.BtnSearchClear = new System.Windows.Forms.Button();
+			this.BtnSearchNext = new System.Windows.Forms.Button();
+			this.CmbSearch = new System.Windows.Forms.ComboBox();
+			this.CmsNull = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.CmsResult = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.CmsResult_tss01 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsResult_tss02 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsResult_クリア = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_最下部へ = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_最上部へ = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_名前を付けて保存 = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_名前を付けて保存_SJIS = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsResult_名前を付けて保存_UTF8N = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsSearch = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.CmsSearch_tss01 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsSearch_クリア = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsSearch_ショートカットキーの説明 = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsSearch_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsTextSelect = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.CmsTextSelect_Cancel = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsTextSelect_tss01 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsTextSelect_tss02 = new System.Windows.Forms.ToolStripSeparator();
+			this.CmsTextSelect_コピー = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsTextSelect_切り取り = new System.Windows.Forms.ToolStripMenuItem();
+			this.CmsTextSelect_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
 			this.MstResult = new System.Windows.Forms.MenuStrip();
+			this.RtbResult = new System.Windows.Forms.RichTextBox();
+			this.Sc = new System.Windows.Forms.SplitContainer();
+			this.Scr = new System.Windows.Forms.SplitContainer();
+			this.ToolTip = new System.Windows.Forms.ToolTip(this.components);
+			this.TsmResult01 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult02 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult03 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult04 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult05 = new System.Windows.Forms.ToolStripMenuItem();
+			this.TsmResult06 = new System.Windows.Forms.ToolStripMenuItem();
 			this.TsmResultIndex = new System.Windows.Forms.ToolStripMenuItem();
 			this.TsmResultIndex01 = new System.Windows.Forms.ToolStripMenuItem();
 			this.TsmResultIndex02 = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,94 +81,56 @@ namespace iwm_ClipToText
 			this.TsmResultIndex04 = new System.Windows.Forms.ToolStripMenuItem();
 			this.TsmResultIndex05 = new System.Windows.Forms.ToolStripMenuItem();
 			this.TsmResultIndex06 = new System.Windows.Forms.ToolStripMenuItem();
-			this.TsmResult01 = new System.Windows.Forms.ToolStripMenuItem();
-			this.TsmResult02 = new System.Windows.Forms.ToolStripMenuItem();
-			this.TsmResult03 = new System.Windows.Forms.ToolStripMenuItem();
-			this.TsmResult04 = new System.Windows.Forms.ToolStripMenuItem();
-			this.TsmResult05 = new System.Windows.Forms.ToolStripMenuItem();
-			this.TsmResult06 = new System.Windows.Forms.ToolStripMenuItem();
-			this.SplitContainerResult = new System.Windows.Forms.SplitContainer();
-			this.BtnPasteFilename = new System.Windows.Forms.Button();
-			this.BtnPasteTextfile = new System.Windows.Forms.Button();
-			this.RtbResult = new System.Windows.Forms.RichTextBox();
-			this.CmsResult = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.CmsResult_クリア = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsResult_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsResult_名前を付けて保存 = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsResult_名前を付けて保存_SJIS = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsResult_名前を付けて保存_UTF8N = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsResult_最上部へ = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsResult_最下部へ = new System.Windows.Forms.ToolStripMenuItem();
-			this.BtnSearch = new System.Windows.Forms.Button();
-			this.CmbSearch = new System.Windows.Forms.ComboBox();
-			this.CmsSearch = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.CmsSearch_クリア = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsSearch_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsSearch_ショートカットキーの説明 = new System.Windows.Forms.ToolStripMenuItem();
-			this.BtnSearchNext = new System.Windows.Forms.Button();
-			this.BtnSearchClear = new System.Windows.Forms.Button();
-			this.BtnReload = new System.Windows.Forms.Button();
-			this.CmsNull = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.BtnCopy = new System.Windows.Forms.Button();
-			this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.CmsTextSelect = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.CmsTextSelect_Cancel = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsTextSelect_コピー = new System.Windows.Forms.ToolStripMenuItem();
-			this.CmsTextSelect_切り取り = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.CmsTextSelect_貼り付け = new System.Windows.Forms.ToolStripMenuItem();
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.Panel2.SuspendLayout();
-			this.splitContainer1.SuspendLayout();
-			this.MstResult.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.SplitContainerResult)).BeginInit();
-			this.SplitContainerResult.Panel1.SuspendLayout();
-			this.SplitContainerResult.Panel2.SuspendLayout();
-			this.SplitContainerResult.SuspendLayout();
+
+			((System.ComponentModel.ISupportInitialize)(this.Sc)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.Scr)).BeginInit();
+
 			this.CmsResult.SuspendLayout();
 			this.CmsSearch.SuspendLayout();
 			this.CmsTextSelect.SuspendLayout();
+			this.MstResult.SuspendLayout();
+			this.Sc.Panel1.SuspendLayout();
+			this.Sc.Panel2.SuspendLayout();
+			this.Sc.SuspendLayout();
+			this.Scr.Panel1.SuspendLayout();
+			this.Scr.Panel2.SuspendLayout();
+			this.Scr.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// splitContainer1
+			// Sc
 			// 
-			this.splitContainer1.BackColor = System.Drawing.Color.DimGray;
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-			this.splitContainer1.ForeColor = System.Drawing.Color.White;
-			this.splitContainer1.IsSplitterFixed = true;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-			this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
-			this.splitContainer1.Name = "splitContainer1";
-			this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			this.Sc.BackColor = System.Drawing.Color.DimGray;
+			this.Sc.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Sc.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+			this.Sc.ForeColor = System.Drawing.Color.White;
+			this.Sc.IsSplitterFixed = true;
+			this.Sc.Location = new System.Drawing.Point(0, 0);
+			this.Sc.Margin = new System.Windows.Forms.Padding(0);
+			this.Sc.Name = "Sc";
+			this.Sc.Orientation = System.Windows.Forms.Orientation.Horizontal;
 			// 
-			// splitContainer1.Panel1
+			// Sc.Panel1
 			// 
-			this.splitContainer1.Panel1.BackColor = System.Drawing.Color.DimGray;
-			this.splitContainer1.Panel1.Controls.Add(this.MstResult);
-			this.splitContainer1.Panel1.Controls.Add(this.SplitContainerResult);
-			this.splitContainer1.Panel1.Controls.Add(this.RtbResult);
-			this.splitContainer1.Panel1.ForeColor = System.Drawing.Color.White;
+			this.Sc.Panel1.BackColor = System.Drawing.Color.DimGray;
+			this.Sc.Panel1.Controls.Add(this.MstResult);
+			this.Sc.Panel1.Controls.Add(this.Scr);
+			this.Sc.Panel1.Controls.Add(this.RtbResult);
+			this.Sc.Panel1.ForeColor = System.Drawing.Color.White;
 			// 
-			// splitContainer1.Panel2
+			// Sc.Panel2
 			// 
-			this.splitContainer1.Panel2.BackColor = System.Drawing.Color.DimGray;
-			this.splitContainer1.Panel2.Controls.Add(this.BtnSearch);
-			this.splitContainer1.Panel2.Controls.Add(this.CmbSearch);
-			this.splitContainer1.Panel2.Controls.Add(this.BtnSearchNext);
-			this.splitContainer1.Panel2.Controls.Add(this.BtnSearchClear);
-			this.splitContainer1.Panel2.Controls.Add(this.BtnReload);
-			this.splitContainer1.Panel2.Controls.Add(this.BtnCopy);
-			this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.White;
-			this.splitContainer1.Size = new System.Drawing.Size(304, 101);
-			this.splitContainer1.SplitterDistance = 66;
-			this.splitContainer1.TabIndex = 0;
-			this.splitContainer1.TabStop = false;
+			this.Sc.Panel2.BackColor = System.Drawing.Color.DimGray;
+			this.Sc.Panel2.Controls.Add(this.BtnSearch);
+			this.Sc.Panel2.Controls.Add(this.CmbSearch);
+			this.Sc.Panel2.Controls.Add(this.BtnSearchNext);
+			this.Sc.Panel2.Controls.Add(this.BtnSearchClear);
+			this.Sc.Panel2.Controls.Add(this.BtnReload);
+			this.Sc.Panel2.Controls.Add(this.BtnCopy);
+			this.Sc.Panel2.ForeColor = System.Drawing.Color.White;
+			this.Sc.Size = new System.Drawing.Size(304, 101);
+			this.Sc.SplitterDistance = 66;
+			this.Sc.TabIndex = 0;
+			this.Sc.TabStop = false;
 			// 
 			// MstResult
 			// 
@@ -136,13 +139,14 @@ namespace iwm_ClipToText
 			this.MstResult.Font = new System.Drawing.Font("ＭＳ ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.MstResult.GripMargin = new System.Windows.Forms.Padding(0);
 			this.MstResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmResultIndex,
-            this.TsmResult01,
-            this.TsmResult02,
-            this.TsmResult03,
-            this.TsmResult04,
-            this.TsmResult05,
-            this.TsmResult06});
+				this.TsmResultIndex,
+				this.TsmResult01,
+				this.TsmResult02,
+				this.TsmResult03,
+				this.TsmResult04,
+				this.TsmResult05,
+				this.TsmResult06
+			});
 			this.MstResult.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
 			this.MstResult.Location = new System.Drawing.Point(0, 49);
 			this.MstResult.Name = "MstResult";
@@ -155,12 +159,13 @@ namespace iwm_ClipToText
 			// 
 			this.TsmResultIndex.BackColor = System.Drawing.Color.Azure;
 			this.TsmResultIndex.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TsmResultIndex01,
-            this.TsmResultIndex02,
-            this.TsmResultIndex03,
-            this.TsmResultIndex04,
-            this.TsmResultIndex05,
-            this.TsmResultIndex06});
+				this.TsmResultIndex01,
+				this.TsmResultIndex02,
+				this.TsmResultIndex03,
+				this.TsmResultIndex04,
+				this.TsmResultIndex05,
+				this.TsmResultIndex06
+			});
 			this.TsmResultIndex.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.TsmResultIndex.ForeColor = System.Drawing.Color.DimGray;
 			this.TsmResultIndex.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
@@ -274,47 +279,43 @@ namespace iwm_ClipToText
 			this.TsmResult06.Text = "6";
 			this.TsmResult06.Click += new System.EventHandler(this.TsmResult06_Click);
 			// 
-			// SplitContainerResult
+			// Scr
 			// 
-			this.SplitContainerResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.SplitContainerResult.BackColor = System.Drawing.Color.Black;
-			this.SplitContainerResult.ForeColor = System.Drawing.Color.White;
-			this.SplitContainerResult.IsSplitterFixed = true;
-			this.SplitContainerResult.Location = new System.Drawing.Point(1, 1);
-			this.SplitContainerResult.Margin = new System.Windows.Forms.Padding(0);
-			this.SplitContainerResult.Name = "SplitContainerResult";
+			this.Scr.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+			this.Scr.BackColor = System.Drawing.Color.Black;
+			this.Scr.ForeColor = System.Drawing.Color.White;
+			this.Scr.IsSplitterFixed = true;
+			this.Scr.Location = new System.Drawing.Point(1, 1);
+			this.Scr.Margin = new System.Windows.Forms.Padding(0);
+			this.Scr.Name = "Scr";
 			// 
-			// SplitContainerResult.Panel1
+			// Scr.Panel1
 			// 
-			this.SplitContainerResult.Panel1.AllowDrop = true;
-			this.SplitContainerResult.Panel1.BackColor = System.Drawing.Color.Black;
-			this.SplitContainerResult.Panel1.Controls.Add(this.BtnPasteFilename);
-			this.SplitContainerResult.Panel1.ForeColor = System.Drawing.Color.White;
-			this.SplitContainerResult.Panel1.Click += new System.EventHandler(this.SplitContainerResult_Panel1_Click);
-			this.SplitContainerResult.Panel1.DragLeave += new System.EventHandler(this.SplitContainerResult_Panel1_DragLeave);
+			this.Scr.Panel1.AllowDrop = true;
+			this.Scr.Panel1.BackColor = System.Drawing.Color.Black;
+			this.Scr.Panel1.Controls.Add(this.BtnPasteFilename);
+			this.Scr.Panel1.ForeColor = System.Drawing.Color.White;
+			this.Scr.Panel1.Click += new System.EventHandler(this.Scr_Panel1_Click);
+			this.Scr.Panel1.DragLeave += new System.EventHandler(this.Scr_Panel1_DragLeave);
 			// 
-			// SplitContainerResult.Panel2
+			// Scr.Panel2
 			// 
-			this.SplitContainerResult.Panel2.AllowDrop = true;
-			this.SplitContainerResult.Panel2.BackColor = System.Drawing.Color.Black;
-			this.SplitContainerResult.Panel2.Controls.Add(this.BtnPasteTextfile);
-			this.SplitContainerResult.Panel2.ForeColor = System.Drawing.Color.White;
-			this.SplitContainerResult.Panel2.Click += new System.EventHandler(this.SplitContainerResult_Panel2_Click);
-			this.SplitContainerResult.Panel2.DragLeave += new System.EventHandler(this.SplitContainerResult_Panel2_DragLeave);
-			this.SplitContainerResult.Size = new System.Drawing.Size(302, 47);
-			this.SplitContainerResult.SplitterDistance = 150;
-			this.SplitContainerResult.SplitterWidth = 2;
-			this.SplitContainerResult.TabIndex = 0;
-			this.SplitContainerResult.TabStop = false;
+			this.Scr.Panel2.AllowDrop = true;
+			this.Scr.Panel2.BackColor = System.Drawing.Color.Black;
+			this.Scr.Panel2.Controls.Add(this.BtnPasteTextfile);
+			this.Scr.Panel2.ForeColor = System.Drawing.Color.White;
+			this.Scr.Panel2.Click += new System.EventHandler(this.Scr_Panel2_Click);
+			this.Scr.Panel2.DragLeave += new System.EventHandler(this.Scr_Panel2_DragLeave);
+			this.Scr.Size = new System.Drawing.Size(302, 47);
+			this.Scr.SplitterDistance = 150;
+			this.Scr.SplitterWidth = 2;
+			this.Scr.TabIndex = 0;
+			this.Scr.TabStop = false;
 			// 
 			// BtnPasteFilename
 			// 
 			this.BtnPasteFilename.AllowDrop = true;
-			this.BtnPasteFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.BtnPasteFilename.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
 			this.BtnPasteFilename.BackColor = System.Drawing.Color.RoyalBlue;
 			this.BtnPasteFilename.FlatAppearance.BorderColor = System.Drawing.Color.White;
 			this.BtnPasteFilename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
@@ -337,9 +338,7 @@ namespace iwm_ClipToText
 			// BtnPasteTextfile
 			// 
 			this.BtnPasteTextfile.AllowDrop = true;
-			this.BtnPasteTextfile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.BtnPasteTextfile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
 			this.BtnPasteTextfile.BackColor = System.Drawing.Color.Crimson;
 			this.BtnPasteTextfile.FlatAppearance.BorderColor = System.Drawing.Color.White;
 			this.BtnPasteTextfile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Crimson;
@@ -362,9 +361,7 @@ namespace iwm_ClipToText
 			// RtbResult
 			// 
 			this.RtbResult.AllowDrop = true;
-			this.RtbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.RtbResult.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
 			this.RtbResult.BackColor = System.Drawing.Color.Black;
 			this.RtbResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.RtbResult.ContextMenuStrip = this.CmsResult;
@@ -388,13 +385,14 @@ namespace iwm_ClipToText
 			// 
 			this.CmsResult.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsResult.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsResult_クリア,
-            this.CmsResult_貼り付け,
-            this.toolStripSeparator2,
-            this.CmsResult_名前を付けて保存,
-            this.toolStripSeparator4,
-            this.CmsResult_最上部へ,
-            this.CmsResult_最下部へ});
+				this.CmsResult_クリア,
+				this.CmsResult_貼り付け,
+				this.CmsResult_tss01,
+				this.CmsResult_名前を付けて保存,
+				this.CmsResult_tss02,
+				this.CmsResult_最上部へ,
+				this.CmsResult_最下部へ
+			});
 			this.CmsResult.Name = "CmsTbSaveFileName";
 			this.CmsResult.Size = new System.Drawing.Size(162, 126);
 			this.CmsResult.Opened += new System.EventHandler(this.CmsResult_Opened);
@@ -415,16 +413,17 @@ namespace iwm_ClipToText
 			this.CmsResult_貼り付け.Text = "貼り付け";
 			this.CmsResult_貼り付け.Click += new System.EventHandler(this.CmsResult_貼り付け_Click);
 			// 
-			// toolStripSeparator2
+			// CmsResult_tss01
 			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(158, 6);
+			this.CmsResult_tss01.Name = "CmsResult_tss01";
+			this.CmsResult_tss01.Size = new System.Drawing.Size(158, 6);
 			// 
 			// CmsResult_名前を付けて保存
 			// 
 			this.CmsResult_名前を付けて保存.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsResult_名前を付けて保存_SJIS,
-            this.CmsResult_名前を付けて保存_UTF8N});
+				this.CmsResult_名前を付けて保存_SJIS,
+				this.CmsResult_名前を付けて保存_UTF8N
+			});
 			this.CmsResult_名前を付けて保存.Image = ((System.Drawing.Image)(resources.GetObject("CmsResult_名前を付けて保存.Image")));
 			this.CmsResult_名前を付けて保存.Name = "CmsResult_名前を付けて保存";
 			this.CmsResult_名前を付けて保存.Size = new System.Drawing.Size(161, 22);
@@ -446,10 +445,10 @@ namespace iwm_ClipToText
 			this.CmsResult_名前を付けて保存_UTF8N.Text = "UTF-8N";
 			this.CmsResult_名前を付けて保存_UTF8N.Click += new System.EventHandler(this.CmsResult_名前を付けて保存_UTF8N_Click);
 			// 
-			// toolStripSeparator4
+			// CmsResult_tss02
 			// 
-			this.toolStripSeparator4.Name = "toolStripSeparator4";
-			this.toolStripSeparator4.Size = new System.Drawing.Size(158, 6);
+			this.CmsResult_tss02.Name = "CmsResult_tss02";
+			this.CmsResult_tss02.Size = new System.Drawing.Size(158, 6);
 			// 
 			// CmsResult_最上部へ
 			// 
@@ -486,14 +485,13 @@ namespace iwm_ClipToText
 			this.BtnSearch.Size = new System.Drawing.Size(20, 20);
 			this.BtnSearch.TabIndex = 0;
 			this.BtnSearch.TabStop = false;
-			this.ToolTip1.SetToolTip(this.BtnSearch, "検索開始");
+			this.ToolTip.SetToolTip(this.BtnSearch, "検索開始");
 			this.BtnSearch.UseVisualStyleBackColor = false;
 			this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
 			// 
 			// CmbSearch
 			// 
-			this.CmbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+			this.CmbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
 			this.CmbSearch.BackColor = System.Drawing.Color.LightYellow;
 			this.CmbSearch.ContextMenuStrip = this.CmsSearch;
 			this.CmbSearch.DropDownHeight = 121;
@@ -509,7 +507,7 @@ namespace iwm_ClipToText
 			this.CmbSearch.Name = "CmbSearch";
 			this.CmbSearch.Size = new System.Drawing.Size(85, 20);
 			this.CmbSearch.TabIndex = 1;
-			this.ToolTip1.SetToolTip(this.CmbSearch, "正規表現による検索");
+			this.ToolTip.SetToolTip(this.CmbSearch, "正規表現による検索");
 			this.CmbSearch.Enter += new System.EventHandler(this.CmbSearch_Enter);
 			this.CmbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbSearch_KeyPress);
 			this.CmbSearch.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CmbSearch_KeyUp);
@@ -519,10 +517,11 @@ namespace iwm_ClipToText
 			// 
 			this.CmsSearch.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsSearch.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsSearch_クリア,
-            this.CmsSearch_貼り付け,
-            this.toolStripMenuItem1,
-            this.CmsSearch_ショートカットキーの説明});
+				this.CmsSearch_クリア,
+				this.CmsSearch_貼り付け,
+				this.CmsSearch_tss01,
+				this.CmsSearch_ショートカットキーの説明
+			});
 			this.CmsSearch.Name = "CmsTbSaveFileName";
 			this.CmsSearch.Size = new System.Drawing.Size(184, 76);
 			this.CmsSearch.Opened += new System.EventHandler(this.CmsSearch_Opened);
@@ -543,10 +542,10 @@ namespace iwm_ClipToText
 			this.CmsSearch_貼り付け.Text = "貼り付け";
 			this.CmsSearch_貼り付け.Click += new System.EventHandler(this.CmsSearch_貼り付け_Click);
 			// 
-			// toolStripMenuItem1
+			// CmsSearch_tss01
 			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 6);
+			this.CmsSearch_tss01.Name = "CmsSearch_tss01";
+			this.CmsSearch_tss01.Size = new System.Drawing.Size(180, 6);
 			// 
 			// CmsSearch_ショートカットキーの説明
 			// 
@@ -574,7 +573,7 @@ namespace iwm_ClipToText
 			this.BtnSearchNext.TabIndex = 0;
 			this.BtnSearchNext.TabStop = false;
 			this.BtnSearchNext.Text = "▶";
-			this.ToolTip1.SetToolTip(this.BtnSearchNext, "次の検索結果");
+			this.ToolTip.SetToolTip(this.BtnSearchNext, "次の検索結果");
 			this.BtnSearchNext.UseVisualStyleBackColor = false;
 			this.BtnSearchNext.Click += new System.EventHandler(this.BtnSearchNext_Click);
 			// 
@@ -595,7 +594,7 @@ namespace iwm_ClipToText
 			this.BtnSearchClear.Size = new System.Drawing.Size(20, 20);
 			this.BtnSearchClear.TabIndex = 2;
 			this.BtnSearchClear.Text = "✖";
-			this.ToolTip1.SetToolTip(this.BtnSearchClear, "検索結果をクリア");
+			this.ToolTip.SetToolTip(this.BtnSearchClear, "検索結果をクリア");
 			this.BtnSearchClear.UseVisualStyleBackColor = false;
 			this.BtnSearchClear.Click += new System.EventHandler(this.BtnSearchClear_Click);
 			// 
@@ -614,7 +613,7 @@ namespace iwm_ClipToText
 			this.BtnReload.TabIndex = 0;
 			this.BtnReload.TabStop = false;
 			this.BtnReload.Text = "再読込";
-			this.ToolTip1.SetToolTip(this.BtnReload, "クリップボードから再読込");
+			this.ToolTip.SetToolTip(this.BtnReload, "クリップボードから再読込");
 			this.BtnReload.UseVisualStyleBackColor = false;
 			this.BtnReload.Click += new System.EventHandler(this.BtnReload_Click);
 			// 
@@ -639,24 +638,25 @@ namespace iwm_ClipToText
 			this.BtnCopy.TabIndex = 0;
 			this.BtnCopy.TabStop = false;
 			this.BtnCopy.Text = "コピー";
-			this.ToolTip1.SetToolTip(this.BtnCopy, "クリップボードにコピー(以前のクリップボードは破棄)");
+			this.ToolTip.SetToolTip(this.BtnCopy, "クリップボードにコピー(以前のクリップボードは破棄)");
 			this.BtnCopy.UseVisualStyleBackColor = false;
 			this.BtnCopy.Click += new System.EventHandler(this.BtnCopy_Click);
 			// 
-			// ToolTip1
+			// ToolTip
 			// 
-			this.ToolTip1.AutomaticDelay = 1000;
+			this.ToolTip.AutomaticDelay = 1000;
 			// 
 			// CmsTextSelect
 			// 
 			this.CmsTextSelect.BackColor = System.Drawing.SystemColors.ControlLightLight;
 			this.CmsTextSelect.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.CmsTextSelect_Cancel,
-            this.toolStripSeparator3,
-            this.CmsTextSelect_コピー,
-            this.CmsTextSelect_切り取り,
-            this.toolStripSeparator1,
-            this.CmsTextSelect_貼り付け});
+				this.CmsTextSelect_Cancel,
+				this.CmsTextSelect_tss01,
+				this.CmsTextSelect_コピー,
+				this.CmsTextSelect_切り取り,
+				this.CmsTextSelect_tss02,
+				this.CmsTextSelect_貼り付け
+			});
 			this.CmsTextSelect.Name = "CmsResult";
 			this.CmsTextSelect.Size = new System.Drawing.Size(116, 104);
 			// 
@@ -668,10 +668,10 @@ namespace iwm_ClipToText
 			this.CmsTextSelect_Cancel.Text = "選択";
 			this.CmsTextSelect_Cancel.Click += new System.EventHandler(this.CmsTextSelect_Cancel_Click);
 			// 
-			// toolStripSeparator3
+			// CmsTextSelect_tss01
 			// 
-			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(112, 6);
+			this.CmsTextSelect_tss01.Name = "CmsTextSelect_tss01";
+			this.CmsTextSelect_tss01.Size = new System.Drawing.Size(112, 6);
 			// 
 			// CmsTextSelect_コピー
 			// 
@@ -689,10 +689,10 @@ namespace iwm_ClipToText
 			this.CmsTextSelect_切り取り.Text = "切り取り";
 			this.CmsTextSelect_切り取り.Click += new System.EventHandler(this.CmsTextSelect_切り取り_Click);
 			// 
-			// toolStripSeparator1
+			// CmsTextSelect_tss02
 			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(112, 6);
+			this.CmsTextSelect_tss02.Name = "CmsTextSelect_tss02";
+			this.CmsTextSelect_tss02.Size = new System.Drawing.Size(112, 6);
 			// 
 			// CmsTextSelect_貼り付け
 			// 
@@ -704,45 +704,80 @@ namespace iwm_ClipToText
 			// 
 			// Form1
 			// 
+			this.Controls.Add(this.Sc);
+
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.DimGray;
 			this.ClientSize = new System.Drawing.Size(304, 101);
-			this.Controls.Add(this.splitContainer1);
 			this.DoubleBuffered = true;
 			this.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.ForeColor = System.Drawing.Color.White;
+			this.Load += new System.EventHandler(this.Form1_Load);
 			this.MinimumSize = new System.Drawing.Size(320, 140);
 			this.Name = "Form1";
+			this.Resize += new System.EventHandler(this.Form1_Resize);
 			this.ShowIcon = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Form1";
 			this.TopMost = true;
-			this.Load += new System.EventHandler(this.Form1_Load);
-			this.Resize += new System.EventHandler(this.Form1_Resize);
-			this.splitContainer1.Panel1.ResumeLayout(false);
-			this.splitContainer1.Panel1.PerformLayout();
-			this.splitContainer1.Panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-			this.splitContainer1.ResumeLayout(false);
-			this.MstResult.ResumeLayout(false);
-			this.MstResult.PerformLayout();
-			this.SplitContainerResult.Panel1.ResumeLayout(false);
-			this.SplitContainerResult.Panel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.SplitContainerResult)).EndInit();
-			this.SplitContainerResult.ResumeLayout(false);
+
+			((System.ComponentModel.ISupportInitialize)(this.Sc)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.Scr)).EndInit();
+
 			this.CmsResult.ResumeLayout(false);
 			this.CmsSearch.ResumeLayout(false);
 			this.CmsTextSelect.ResumeLayout(false);
+			this.MstResult.PerformLayout();
+			this.MstResult.ResumeLayout(false);
 			this.ResumeLayout(false);
-
+			this.Sc.Panel1.PerformLayout();
+			this.Sc.Panel1.ResumeLayout(false);
+			this.Sc.Panel2.ResumeLayout(false);
+			this.Sc.ResumeLayout(false);
+			this.Scr.Panel1.ResumeLayout(false);
+			this.Scr.Panel2.ResumeLayout(false);
+			this.Scr.ResumeLayout(false);
 		}
 
 		#endregion
-
-		private System.Windows.Forms.SplitContainer splitContainer1;
+		private System.Windows.Forms.Button BtnCopy;
+		private System.Windows.Forms.Button BtnPasteFilename;
+		private System.Windows.Forms.Button BtnPasteTextfile;
+		private System.Windows.Forms.Button BtnReload;
+		private System.Windows.Forms.Button BtnSearch;
+		private System.Windows.Forms.Button BtnSearchClear;
+		private System.Windows.Forms.Button BtnSearchNext;
+		private System.Windows.Forms.ComboBox CmbSearch;
+		private System.Windows.Forms.ContextMenuStrip CmsNull;
+		private System.Windows.Forms.ContextMenuStrip CmsResult;
+		private System.Windows.Forms.ContextMenuStrip CmsSearch;
+		private System.Windows.Forms.ContextMenuStrip CmsTextSelect;
 		private System.Windows.Forms.MenuStrip MstResult;
+		private System.Windows.Forms.RichTextBox RtbResult;
+		private System.Windows.Forms.SplitContainer Sc;
+		private System.Windows.Forms.SplitContainer Scr;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_クリア;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_最下部へ;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_最上部へ;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_貼り付け;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存_SJIS;
+		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存_UTF8N;
+		private System.Windows.Forms.ToolStripMenuItem CmsSearch_クリア;
+		private System.Windows.Forms.ToolStripMenuItem CmsSearch_ショートカットキーの説明;
+		private System.Windows.Forms.ToolStripMenuItem CmsSearch_貼り付け;
+		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_Cancel;
+		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_コピー;
+		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_切り取り;
+		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_貼り付け;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult01;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult02;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult03;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult04;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult05;
+		private System.Windows.Forms.ToolStripMenuItem TsmResult06;
 		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex;
 		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex01;
 		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex02;
@@ -750,46 +785,12 @@ namespace iwm_ClipToText
 		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex04;
 		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex05;
 		private System.Windows.Forms.ToolStripMenuItem TsmResultIndex06;
-		private System.Windows.Forms.ToolStripMenuItem TsmResult01;
-		private System.Windows.Forms.ToolStripMenuItem TsmResult02;
-		private System.Windows.Forms.ToolStripMenuItem TsmResult03;
-		private System.Windows.Forms.ToolStripMenuItem TsmResult04;
-		private System.Windows.Forms.ToolStripMenuItem TsmResult05;
-		private System.Windows.Forms.ToolStripMenuItem TsmResult06;
-		private System.Windows.Forms.ComboBox CmbSearch;
-		private System.Windows.Forms.ContextMenuStrip CmsSearch;
-		private System.Windows.Forms.ToolStripMenuItem CmsSearch_クリア;
-		private System.Windows.Forms.ToolStripMenuItem CmsSearch_貼り付け;
-		private System.Windows.Forms.ToolTip ToolTip1;
-		private System.Windows.Forms.Button BtnSearchClear;
-		private System.Windows.Forms.Button BtnReload;
-		private System.Windows.Forms.ContextMenuStrip CmsNull;
-		private System.Windows.Forms.Button BtnCopy;
-		private System.Windows.Forms.ContextMenuStrip CmsResult;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_クリア;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_貼り付け;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存_SJIS;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_名前を付けて保存_UTF8N;
-		private System.Windows.Forms.ContextMenuStrip CmsTextSelect;
-		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_Cancel;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_コピー;
-		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_切り取り;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-		private System.Windows.Forms.ToolStripMenuItem CmsTextSelect_貼り付け;
-		private System.Windows.Forms.SplitContainer SplitContainerResult;
-		private System.Windows.Forms.Button BtnPasteFilename;
-		private System.Windows.Forms.Button BtnPasteTextfile;
-		private System.Windows.Forms.RichTextBox RtbResult;
-		private System.Windows.Forms.Button BtnSearchNext;
-		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem CmsSearch_ショートカットキーの説明;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_最上部へ;
-		private System.Windows.Forms.ToolStripMenuItem CmsResult_最下部へ;
-		private System.Windows.Forms.Button BtnSearch;
+		private System.Windows.Forms.ToolStripSeparator CmsResult_tss01;
+		private System.Windows.Forms.ToolStripSeparator CmsResult_tss02;
+		private System.Windows.Forms.ToolStripSeparator CmsSearch_tss01;
+		private System.Windows.Forms.ToolStripSeparator CmsTextSelect_tss01;
+		private System.Windows.Forms.ToolStripSeparator CmsTextSelect_tss02;
+		private System.Windows.Forms.ToolTip ToolTip;
 	}
 }
 
