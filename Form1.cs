@@ -16,7 +16,7 @@ namespace iwm_ClipToText
 		private const string ProgramID = "クリップボードからテキスト取得 iwm20220301";
 
 		private const string NL = "\r\n";
-		private const string RgxNL = "(\r\n|\r|\n)";
+		private const string RgxNL = "\r?\n";
 
 		// [0]             [1]          [2]          [3]          [4]          [5]          [6]
 		// TsmResultIndex, TsmResult01, TsmResult02, TsmResult03, TsmResult04, TsmResult05, TsmResult06
