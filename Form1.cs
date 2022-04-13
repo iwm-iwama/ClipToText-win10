@@ -4,7 +4,6 @@ using System.Collections.Specialized;
 //using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -13,7 +12,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20220301";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20220413";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r?\n";
@@ -154,18 +153,6 @@ namespace iwm_ClipToText
 		private void CmsResult_名前を付けて保存_UTF8N_Click(object sender, EventArgs e)
 		{
 			_ = RtnTextFileWrite(RtbResult.Text, 65001, DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".txt", true, TEXT_FILTER);
-		}
-
-		private void CmsResult_最上部へ_Click(object sender, EventArgs e)
-		{
-			RtbResult.Select(0, 0);
-			RtbResult.ScrollToCaret();
-		}
-
-		private void CmsResult_最下部へ_Click(object sender, EventArgs e)
-		{
-			RtbResult.Select(RtbResult.TextLength, 0);
-			RtbResult.ScrollToCaret();
 		}
 
 		private void Scr_Panel1_Click(object sender, EventArgs e)
