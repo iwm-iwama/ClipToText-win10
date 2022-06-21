@@ -157,7 +157,7 @@ namespace iwm_ClipToText
 			this.BtnPasteTextfile.Location = new System.Drawing.Point(15, 8);
 			this.BtnPasteTextfile.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnPasteTextfile.Name = "BtnPasteTextfile";
-			this.BtnPasteTextfile.Size = new System.Drawing.Size(124, 30);
+			this.BtnPasteTextfile.Size = new System.Drawing.Size(126, 30);
 			this.BtnPasteTextfile.TabIndex = 0;
 			this.BtnPasteTextfile.TabStop = false;
 			this.BtnPasteTextfile.Text = "テキスト";
@@ -188,19 +188,18 @@ namespace iwm_ClipToText
 			// BtnSearch
 			// 
 			this.BtnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnSearch.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.BtnSearch.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-			this.BtnSearch.FlatAppearance.BorderSize = 0;
+			this.BtnSearch.BackColor = System.Drawing.Color.White;
+			this.BtnSearch.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
 			this.BtnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
 			this.BtnSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnSearch.Font = new System.Drawing.Font("游ゴシック", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearch.ForeColor = System.Drawing.Color.Black;
 			this.BtnSearch.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearch.Image")));
-			this.BtnSearch.Location = new System.Drawing.Point(243, 4);
+			this.BtnSearch.Location = new System.Drawing.Point(242, 4);
 			this.BtnSearch.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnSearch.Name = "BtnSearch";
-			this.BtnSearch.Size = new System.Drawing.Size(19, 20);
+			this.BtnSearch.Size = new System.Drawing.Size(20, 20);
 			this.BtnSearch.TabIndex = 0;
 			this.BtnSearch.TabStop = false;
 			this.ToolTip.SetToolTip(this.BtnSearch, "検索開始");
@@ -210,19 +209,18 @@ namespace iwm_ClipToText
 			// BtnSearchClear
 			// 
 			this.BtnSearchClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnSearchClear.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.BtnSearchClear.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-			this.BtnSearchClear.FlatAppearance.BorderSize = 0;
+			this.BtnSearchClear.BackColor = System.Drawing.Color.White;
+			this.BtnSearchClear.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
 			this.BtnSearchClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
 			this.BtnSearchClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnSearchClear.Font = new System.Drawing.Font("游ゴシック", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearchClear.ForeColor = System.Drawing.Color.Black;
 			this.BtnSearchClear.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchClear.Image")));
-			this.BtnSearchClear.Location = new System.Drawing.Point(281, 4);
+			this.BtnSearchClear.Location = new System.Drawing.Point(280, 4);
 			this.BtnSearchClear.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnSearchClear.Name = "BtnSearchClear";
-			this.BtnSearchClear.Size = new System.Drawing.Size(19, 20);
+			this.BtnSearchClear.Size = new System.Drawing.Size(20, 20);
 			this.BtnSearchClear.TabIndex = 2;
 			this.ToolTip.SetToolTip(this.BtnSearchClear, "検索結果をクリア");
 			this.BtnSearchClear.UseVisualStyleBackColor = false;
@@ -231,19 +229,18 @@ namespace iwm_ClipToText
 			// BtnSearchNext
 			// 
 			this.BtnSearchNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.BtnSearchNext.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.BtnSearchNext.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-			this.BtnSearchNext.FlatAppearance.BorderSize = 0;
+			this.BtnSearchNext.BackColor = System.Drawing.Color.White;
+			this.BtnSearchNext.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
 			this.BtnSearchNext.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Yellow;
 			this.BtnSearchNext.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
 			this.BtnSearchNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.BtnSearchNext.Font = new System.Drawing.Font("游ゴシック", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.BtnSearchNext.ForeColor = System.Drawing.Color.Black;
 			this.BtnSearchNext.Image = ((System.Drawing.Image)(resources.GetObject("BtnSearchNext.Image")));
-			this.BtnSearchNext.Location = new System.Drawing.Point(262, 4);
+			this.BtnSearchNext.Location = new System.Drawing.Point(261, 4);
 			this.BtnSearchNext.Margin = new System.Windows.Forms.Padding(0);
 			this.BtnSearchNext.Name = "BtnSearchNext";
-			this.BtnSearchNext.Size = new System.Drawing.Size(19, 20);
+			this.BtnSearchNext.Size = new System.Drawing.Size(20, 20);
 			this.BtnSearchNext.TabIndex = 0;
 			this.BtnSearchNext.TabStop = false;
 			this.ToolTip.SetToolTip(this.BtnSearchNext, "次の検索結果");
@@ -257,17 +254,16 @@ namespace iwm_ClipToText
 			this.CmbSearch.BackColor = System.Drawing.Color.LightYellow;
 			this.CmbSearch.ContextMenuStrip = this.CmsSearch;
 			this.CmbSearch.DropDownHeight = 121;
-			this.CmbSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.CmbSearch.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
 			this.CmbSearch.ForeColor = System.Drawing.Color.Black;
 			this.CmbSearch.FormattingEnabled = true;
 			this.CmbSearch.IntegralHeight = false;
 			this.CmbSearch.ItemHeight = 12;
-			this.CmbSearch.Location = new System.Drawing.Point(173, 4);
+			this.CmbSearch.Location = new System.Drawing.Point(168, 4);
 			this.CmbSearch.Margin = new System.Windows.Forms.Padding(0);
 			this.CmbSearch.MaxDropDownItems = 1;
 			this.CmbSearch.Name = "CmbSearch";
-			this.CmbSearch.Size = new System.Drawing.Size(70, 20);
+			this.CmbSearch.Size = new System.Drawing.Size(75, 20);
 			this.CmbSearch.TabIndex = 1;
 			this.ToolTip.SetToolTip(this.CmbSearch, "正規表現による検索");
 			this.CmbSearch.Enter += new System.EventHandler(this.CmbSearch_Enter);

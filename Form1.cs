@@ -12,7 +12,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20220413";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20220621";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r?\n";
@@ -577,6 +577,7 @@ namespace iwm_ClipToText
 		{
 			if (CmbSearch.Text.Length == 0)
 			{
+				_ = CmbSearch.Focus();
 				return;
 			}
 
@@ -617,6 +618,7 @@ namespace iwm_ClipToText
 			CmbSearch.Text = "";
 			RtbResult.Text = GblResult_AryText[GblResult_AryIndex].ToString();
 			Text = ProgramID;
+			_ = CmbSearch.Focus();
 		}
 
 		private void CmsTextSelect_Open(MouseEventArgs e, object Obj)
