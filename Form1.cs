@@ -12,7 +12,7 @@ namespace iwm_ClipToText
 {
 	public partial class Form1 : Form
 	{
-		private const string ProgramID = "クリップボードからテキスト取得 iwm20220621";
+		private const string ProgramID = "クリップボードからテキスト取得 iwm20230102";
 
 		private const string NL = "\r\n";
 		private const string RgxNL = "\r?\n";
